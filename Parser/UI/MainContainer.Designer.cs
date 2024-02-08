@@ -166,7 +166,7 @@
             this.splitContainer_in.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.splitContainer_in.Panel2MinSize = 200;
             this.splitContainer_in.Size = new System.Drawing.Size(1160, 837);
-            this.splitContainer_in.SplitterDistance = 832;
+            this.splitContainer_in.SplitterDistance = 650;
             this.splitContainer_in.TabIndex = 0;
             // 
             // btnNewParser
@@ -177,7 +177,7 @@
             this.btnNewParser.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnNewParser.ForeColor = System.Drawing.Color.Navy;
             this.btnNewParser.Image = ((System.Drawing.Image)(resources.GetObject("btnNewParser.Image")));
-            this.btnNewParser.Location = new System.Drawing.Point(396, 360);
+            this.btnNewParser.Location = new System.Drawing.Point(309, 360);
             this.btnNewParser.Name = "btnNewParser";
             this.btnNewParser.Size = new System.Drawing.Size(50, 50);
             this.btnNewParser.TabIndex = 0;
@@ -232,7 +232,6 @@
             this.Name = "MainContainer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainContainer";
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Load += new System.EventHandler(this.MainContainer_Load);
             this.menuStrip_Main.ResumeLayout(false);
             this.menuStrip_Main.PerformLayout();

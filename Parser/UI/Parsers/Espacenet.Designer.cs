@@ -46,6 +46,7 @@
             this.lblKeysName = new System.Windows.Forms.Label();
             this.lblKeysText = new System.Windows.Forms.Label();
             this.kryptonPanelBackground = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.panelBorder = new System.Windows.Forms.Panel();
             this.kryptonPanelMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.tableLayoutPanelCenter = new System.Windows.Forms.TableLayoutPanel();
             this.tbMPK = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -60,16 +61,15 @@
             this.tbKeysName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.tableLayoutPanelTop = new System.Windows.Forms.TableLayoutPanel();
             this.panelUnderline = new System.Windows.Forms.Panel();
-            this.panelBorder = new System.Windows.Forms.Panel();
             this.tableLayoutPanelBottom.SuspendLayout();
             this.tableLayoutPanelDocAmount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelBackground)).BeginInit();
             this.kryptonPanelBackground.SuspendLayout();
+            this.panelBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelMain)).BeginInit();
             this.kryptonPanelMain.SuspendLayout();
             this.tableLayoutPanelCenter.SuspendLayout();
             this.tableLayoutPanelTop.SuspendLayout();
-            this.panelBorder.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblParserName
@@ -334,6 +334,17 @@
             this.kryptonPanelBackground.StateNormal.ColorAngle = 25F;
             this.kryptonPanelBackground.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertSquareHighlight2;
             this.kryptonPanelBackground.TabIndex = 28;
+            // 
+            // panelBorder
+            // 
+            this.panelBorder.BackColor = System.Drawing.Color.White;
+            this.panelBorder.Controls.Add(this.kryptonPanelMain);
+            this.panelBorder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBorder.Location = new System.Drawing.Point(50, 30);
+            this.panelBorder.Name = "panelBorder";
+            this.panelBorder.Padding = new System.Windows.Forms.Padding(1);
+            this.panelBorder.Size = new System.Drawing.Size(640, 840);
+            this.panelBorder.TabIndex = 5;
             // 
             // kryptonPanelMain
             // 
@@ -623,17 +634,6 @@
             this.panelUnderline.Size = new System.Drawing.Size(210, 1);
             this.panelUnderline.TabIndex = 3;
             // 
-            // panelBorder
-            // 
-            this.panelBorder.BackColor = System.Drawing.Color.White;
-            this.panelBorder.Controls.Add(this.kryptonPanelMain);
-            this.panelBorder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBorder.Location = new System.Drawing.Point(50, 30);
-            this.panelBorder.Name = "panelBorder";
-            this.panelBorder.Padding = new System.Windows.Forms.Padding(1);
-            this.panelBorder.Size = new System.Drawing.Size(640, 840);
-            this.panelBorder.TabIndex = 5;
-            // 
             // Espacenet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -649,13 +649,13 @@
             this.tableLayoutPanelDocAmount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelBackground)).EndInit();
             this.kryptonPanelBackground.ResumeLayout(false);
+            this.panelBorder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanelMain)).EndInit();
             this.kryptonPanelMain.ResumeLayout(false);
             this.tableLayoutPanelCenter.ResumeLayout(false);
             this.tableLayoutPanelCenter.PerformLayout();
             this.tableLayoutPanelTop.ResumeLayout(false);
             this.tableLayoutPanelTop.PerformLayout();
-            this.panelBorder.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -30,7 +30,10 @@ namespace Parser.UI
 
         private void LoadFileExplorer()
         {
-            FileExplorer fileExplorer = new FileExplorer() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FileExplorer fileExplorer = FileExplorer.getInstance();
+            fileExplorer.Dock = DockStyle.Fill;
+            fileExplorer.TopLevel = false;
+            fileExplorer.TopMost = true;
             splitContainer_out.Panel1.Controls.Add(fileExplorer);
             fileExplorer.Show();
         }

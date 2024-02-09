@@ -33,13 +33,19 @@
             this.panelBackground = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.button_Exit = new System.Windows.Forms.Button();
+            this.labelNoteFips = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.labelUnderNote = new System.Windows.Forms.Label();
             this.panelBackground.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // clbParsers
             // 
+            this.clbParsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.clbParsers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.clbParsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clbParsers.ForeColor = System.Drawing.Color.White;
             this.clbParsers.FormattingEnabled = true;
             this.clbParsers.Items.AddRange(new object[] {
             "Глобальный поиск",
@@ -48,9 +54,9 @@
             "Яндекс.Патенты",
             "WIPO",
             "Espacenet"});
-            this.clbParsers.Location = new System.Drawing.Point(11, 74);
+            this.clbParsers.Location = new System.Drawing.Point(11, 88);
             this.clbParsers.Name = "clbParsers";
-            this.clbParsers.Size = new System.Drawing.Size(187, 256);
+            this.clbParsers.Size = new System.Drawing.Size(190, 233);
             this.clbParsers.TabIndex = 0;
             // 
             // btnCreate
@@ -60,9 +66,9 @@
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(507, 297);
+            this.btnCreate.Location = new System.Drawing.Point(517, 327);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(100, 40);
+            this.btnCreate.Size = new System.Drawing.Size(90, 40);
             this.btnCreate.TabIndex = 1;
             this.btnCreate.Text = "Создать";
             this.btnCreate.UseVisualStyleBackColor = false;
@@ -76,19 +82,23 @@
             this.panelBackground.Location = new System.Drawing.Point(0, 0);
             this.panelBackground.Name = "panelBackground";
             this.panelBackground.Padding = new System.Windows.Forms.Padding(1);
-            this.panelBackground.Size = new System.Drawing.Size(620, 350);
+            this.panelBackground.Size = new System.Drawing.Size(620, 380);
             this.panelBackground.TabIndex = 2;
             // 
             // panelMain
             // 
-            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.panelMain.Controls.Add(this.labelUnderNote);
             this.panelMain.Controls.Add(this.button_Exit);
+            this.panelMain.Controls.Add(this.labelName);
+            this.panelMain.Controls.Add(this.labelNoteFips);
             this.panelMain.Controls.Add(this.btnCreate);
             this.panelMain.Controls.Add(this.clbParsers);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panelMain.Location = new System.Drawing.Point(1, 1);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(618, 348);
+            this.panelMain.Size = new System.Drawing.Size(618, 378);
             this.panelMain.TabIndex = 0;
             this.panelMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMain_MouseDown);
             // 
@@ -109,11 +119,46 @@
             this.button_Exit.UseVisualStyleBackColor = false;
             this.button_Exit.Click += new System.EventHandler(this.button_Exit_Click);
             // 
+            // labelNoteFips
+            // 
+            this.labelNoteFips.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelNoteFips.ForeColor = System.Drawing.Color.White;
+            this.labelNoteFips.Location = new System.Drawing.Point(207, 88);
+            this.labelNoteFips.Name = "labelNoteFips";
+            this.labelNoteFips.Size = new System.Drawing.Size(401, 233);
+            this.labelNoteFips.TabIndex = 8;
+            this.labelNoteFips.Text = "label1";
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.BackColor = System.Drawing.Color.Transparent;
+            this.labelName.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelName.ForeColor = System.Drawing.Color.White;
+            this.labelName.Location = new System.Drawing.Point(168, 28);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(290, 37);
+            this.labelName.TabIndex = 9;
+            this.labelName.Text = "Выбор новой вкладки";
+            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelUnderNote
+            // 
+            this.labelUnderNote.AutoSize = true;
+            this.labelUnderNote.BackColor = System.Drawing.Color.Transparent;
+            this.labelUnderNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUnderNote.ForeColor = System.Drawing.Color.White;
+            this.labelUnderNote.Location = new System.Drawing.Point(11, 327);
+            this.labelUnderNote.Name = "labelUnderNote";
+            this.labelUnderNote.Size = new System.Drawing.Size(480, 15);
+            this.labelUnderNote.TabIndex = 10;
+            this.labelUnderNote.Text = "Выберите одну или несколько вкладок, по которым будет осуществляться поиск.";
+            // 
             // SelectingNewTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 350);
+            this.ClientSize = new System.Drawing.Size(620, 380);
             this.Controls.Add(this.panelBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SelectingNewTab";
@@ -121,6 +166,7 @@
             this.Text = "SelectingNewTab";
             this.panelBackground.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -132,5 +178,8 @@
         private System.Windows.Forms.Panel panelBackground;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button button_Exit;
+        private System.Windows.Forms.Label labelNoteFips;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelUnderNote;
     }
 }

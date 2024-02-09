@@ -1,32 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop;
-using Excel = Microsoft.Office.Interop.Excel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Runtime.InteropServices;
-using System.Xml.Linq;
-using System.Threading;
 using System.Diagnostics;
 
 namespace Parser.UI
 {
     public partial class FileExplorer : Form
     {
+        private static FileExplorer instance = null;
+        public static FileExplorer getInstance()
+        {
+            if (instance == null)
+                instance = new FileExplorer();
+            return instance;
+        }
+
+
         public TreeNode rootNode;
         string path = @"../Результаты поиска/";
 
-        public FileExplorer()
+        protected FileExplorer()
         {
             InitializeComponent();
-            updateExplorer();
+            UpdateFileExplorer();
         }
 
         private void PopulateTreeView()
@@ -75,7 +74,7 @@ namespace Parser.UI
             }
         }
 
-        private void updateExplorer()
+        public void UpdateFileExplorer()
         {
             PopulateTreeView();
 
@@ -85,6 +84,11 @@ namespace Parser.UI
             treeView_ExcelFiles.ExpandAll();
         }
 
+        public void SelectNewFile(string fileName)
+        {
+            treeView_ExcelFiles.SelectedNode = treeView_ExcelFiles.Nodes.Find(fileName, true)[0];
+        }
+
         private void textBox_Search_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBox_Search.Text))
@@ -92,7 +96,7 @@ namespace Parser.UI
                 pictureBox_Clear.Image = imageList_formIcons.Images[0];
                 treeView_ExcelFiles.Nodes.Clear();
 
-                updateExplorer();
+                UpdateFileExplorer();
 
                 return;
             }
@@ -144,7 +148,7 @@ namespace Parser.UI
                 if (_res == DialogResult.OK)
                 {
                     treeView_ExcelFiles.Nodes.Clear();
-                    updateExplorer();
+                    UpdateFileExplorer();
                 }
             }
         }
@@ -154,7 +158,7 @@ namespace Parser.UI
             textBox_Search.Clear();
             treeView_ExcelFiles.Nodes.Clear();
 
-            updateExplorer();
+            UpdateFileExplorer();
             pictureBox_Clear.Image = imageList_formIcons.Images[0];
         }
     }

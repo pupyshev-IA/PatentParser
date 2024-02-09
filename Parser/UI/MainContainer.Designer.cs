@@ -42,28 +42,26 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer_out = new System.Windows.Forms.SplitContainer();
             this.splitContainer_in = new System.Windows.Forms.SplitContainer();
-            this.btnNewParser = new System.Windows.Forms.Button();
             this.kryptonPalette = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.menuStrip_Main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_out)).BeginInit();
             this.splitContainer_out.Panel2.SuspendLayout();
             this.splitContainer_out.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_in)).BeginInit();
-            this.splitContainer_in.Panel1.SuspendLayout();
             this.splitContainer_in.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip_Main
             // 
-            this.menuStrip_Main.BackColor = System.Drawing.Color.White;
-            this.menuStrip_Main.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuStrip_Main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.menuStrip_Main.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.settingsToolStripMenuItem});
             this.menuStrip_Main.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_Main.Name = "menuStrip_Main";
             this.menuStrip_Main.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip_Main.Size = new System.Drawing.Size(1384, 24);
+            this.menuStrip_Main.Size = new System.Drawing.Size(1384, 25);
             this.menuStrip_Main.TabIndex = 0;
             this.menuStrip_Main.Text = "menuStrip_Main";
             // 
@@ -71,8 +69,9 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.поискToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 21);
             this.fileToolStripMenuItem.Text = "Файл";
             // 
             // поискToolStripMenuItem
@@ -85,67 +84,69 @@
             this.wIPOToolStripMenuItem,
             this.espacenetToolStripMenuItem});
             this.поискToolStripMenuItem.Name = "поискToolStripMenuItem";
-            this.поискToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.поискToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.поискToolStripMenuItem.Text = "Поиск";
             // 
             // глобальныйПоискToolStripMenuItem
             // 
             this.глобальныйПоискToolStripMenuItem.Name = "глобальныйПоискToolStripMenuItem";
-            this.глобальныйПоискToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.глобальныйПоискToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.глобальныйПоискToolStripMenuItem.Text = "Глобальный поиск";
             // 
             // простойПоискToolStripMenuItem
             // 
             this.простойПоискToolStripMenuItem.Name = "простойПоискToolStripMenuItem";
-            this.простойПоискToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.простойПоискToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.простойПоискToolStripMenuItem.Text = "Простой поиск";
             // 
             // фИПСToolStripMenuItem
             // 
             this.фИПСToolStripMenuItem.Name = "фИПСToolStripMenuItem";
-            this.фИПСToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.фИПСToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.фИПСToolStripMenuItem.Text = "ФИПС";
             // 
             // яндексПатентыToolStripMenuItem
             // 
             this.яндексПатентыToolStripMenuItem.Name = "яндексПатентыToolStripMenuItem";
-            this.яндексПатентыToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.яндексПатентыToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.яндексПатентыToolStripMenuItem.Text = "Яндекс.Патенты";
             // 
             // wIPOToolStripMenuItem
             // 
             this.wIPOToolStripMenuItem.Name = "wIPOToolStripMenuItem";
-            this.wIPOToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.wIPOToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.wIPOToolStripMenuItem.Text = "WIPO";
             // 
             // espacenetToolStripMenuItem
             // 
             this.espacenetToolStripMenuItem.Name = "espacenetToolStripMenuItem";
-            this.espacenetToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.espacenetToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.espacenetToolStripMenuItem.Text = "Espacenet";
             // 
             // settingsToolStripMenuItem
             // 
+            this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(83, 21);
             this.settingsToolStripMenuItem.Text = "Настройки";
             // 
             // splitContainer_out
             // 
+            this.splitContainer_out.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.splitContainer_out.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer_out.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer_out.Location = new System.Drawing.Point(0, 24);
+            this.splitContainer_out.Location = new System.Drawing.Point(0, 25);
             this.splitContainer_out.Name = "splitContainer_out";
             // 
             // splitContainer_out.Panel1
             // 
-            this.splitContainer_out.Panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.splitContainer_out.Panel1MinSize = 150;
+            this.splitContainer_out.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.splitContainer_out.Panel1MinSize = 200;
             // 
             // splitContainer_out.Panel2
             // 
             this.splitContainer_out.Panel2.Controls.Add(this.splitContainer_in);
-            this.splitContainer_out.Size = new System.Drawing.Size(1384, 837);
+            this.splitContainer_out.Size = new System.Drawing.Size(1384, 836);
             this.splitContainer_out.SplitterDistance = 220;
             this.splitContainer_out.TabIndex = 1;
             // 
@@ -158,31 +159,16 @@
             // 
             // splitContainer_in.Panel1
             // 
-            this.splitContainer_in.Panel1.Controls.Add(this.btnNewParser);
+            this.splitContainer_in.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.splitContainer_in.Panel1MinSize = 200;
             // 
             // splitContainer_in.Panel2
             // 
-            this.splitContainer_in.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.splitContainer_in.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.splitContainer_in.Panel2MinSize = 200;
-            this.splitContainer_in.Size = new System.Drawing.Size(1160, 837);
+            this.splitContainer_in.Size = new System.Drawing.Size(1160, 836);
             this.splitContainer_in.SplitterDistance = 650;
             this.splitContainer_in.TabIndex = 0;
-            // 
-            // btnNewParser
-            // 
-            this.btnNewParser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnNewParser.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnNewParser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNewParser.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnNewParser.ForeColor = System.Drawing.Color.Navy;
-            this.btnNewParser.Image = ((System.Drawing.Image)(resources.GetObject("btnNewParser.Image")));
-            this.btnNewParser.Location = new System.Drawing.Point(309, 360);
-            this.btnNewParser.Name = "btnNewParser";
-            this.btnNewParser.Size = new System.Drawing.Size(50, 50);
-            this.btnNewParser.TabIndex = 0;
-            this.btnNewParser.UseVisualStyleBackColor = false;
-            this.btnNewParser.Click += new System.EventHandler(this.btnNewParser_Click);
             // 
             // kryptonPalette
             // 
@@ -238,7 +224,6 @@
             this.splitContainer_out.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_out)).EndInit();
             this.splitContainer_out.ResumeLayout(false);
-            this.splitContainer_in.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_in)).EndInit();
             this.splitContainer_in.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -254,7 +239,6 @@
         private System.Windows.Forms.SplitContainer splitContainer_out;
         private System.Windows.Forms.SplitContainer splitContainer_in;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette;
-        private System.Windows.Forms.Button btnNewParser;
         private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem глобальныйПоискToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem простойПоискToolStripMenuItem;

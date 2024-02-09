@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ComponentFactory.Krypton.Toolkit;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Parser.UI
 {
@@ -24,8 +25,6 @@ namespace Parser.UI
 
             /*ПРИ ВОССТАНОВЛЕНИИ СОСТОЯНИЯ ПРИ ПОВТОРНОМ ЗАПУСКЕ ДОБАВИТЬ УСЛОВИЕ: результат диалогового окна (да) - > выполнить*/
             LoadParserContainer();
-            btnNewParser.Hide();
-            /*ФУНКЦИЯ ПЕРЕДАЮЩАЯ СПИСОК В МЕТОД КЛАССА ParserContainer*/
         }
 
 
@@ -44,13 +43,6 @@ namespace Parser.UI
             parserContainer.TopMost = true;
             splitContainer_in.Panel1.Controls.Add(parserContainer);
             parserContainer.Show();
-        }
-
-        private void btnNewParser_Click(object sender, EventArgs e)
-        {
-            LoadParserContainer();
-
-            btnNewParser.Hide();
         }
     }
 }

@@ -34,14 +34,16 @@
             this.tabControl_Parsers = new System.Windows.Forms.TabControl();
             this.tabPage_AddButton = new System.Windows.Forms.TabPage();
             this.imageList_icon = new System.Windows.Forms.ImageList(this.components);
+            this.btnNewParser = new System.Windows.Forms.Button();
             this.tabControl_Parsers.SuspendLayout();
+            this.tabPage_AddButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList_icons
             // 
             this.imageList_icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_icons.ImageStream")));
             this.imageList_icons.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList_icons.Images.SetKeyName(0, "tabAdd");
+            this.imageList_icons.Images.SetKeyName(0, "addTab.png");
             // 
             // tabControl_Parsers
             // 
@@ -61,29 +63,49 @@
             // 
             // tabPage_AddButton
             // 
+            this.tabPage_AddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.tabPage_AddButton.Controls.Add(this.btnNewParser);
+            this.tabPage_AddButton.ForeColor = System.Drawing.Color.White;
             this.tabPage_AddButton.Location = new System.Drawing.Point(4, 29);
             this.tabPage_AddButton.Name = "tabPage_AddButton";
             this.tabPage_AddButton.Size = new System.Drawing.Size(872, 777);
             this.tabPage_AddButton.TabIndex = 0;
-            this.tabPage_AddButton.UseVisualStyleBackColor = true;
             // 
             // imageList_icon
             // 
             this.imageList_icon.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList_icon.ImageStream")));
             this.imageList_icon.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList_icon.Images.SetKeyName(0, "tabCls");
+            this.imageList_icon.Images.SetKeyName(0, "tabClos");
+            // 
+            // btnNewParser
+            // 
+            this.btnNewParser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnNewParser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            this.btnNewParser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewParser.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnNewParser.ForeColor = System.Drawing.Color.Navy;
+            this.btnNewParser.Image = ((System.Drawing.Image)(resources.GetObject("btnNewParser.Image")));
+            this.btnNewParser.Location = new System.Drawing.Point(410, 453);
+            this.btnNewParser.Name = "btnNewParser";
+            this.btnNewParser.Size = new System.Drawing.Size(50, 50);
+            this.btnNewParser.TabIndex = 1;
+            this.btnNewParser.UseVisualStyleBackColor = false;
+            this.btnNewParser.Click += new System.EventHandler(this.btnNewParser_Click);
             // 
             // ParserContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(880, 810);
             this.Controls.Add(this.tabControl_Parsers);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ParserContainer";
             this.Text = "ParserContainer";
             this.TopMost = true;
             this.tabControl_Parsers.ResumeLayout(false);
+            this.tabPage_AddButton.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -93,5 +115,6 @@
         private System.Windows.Forms.TabControl tabControl_Parsers;
         private System.Windows.Forms.TabPage tabPage_AddButton;
         private System.Windows.Forms.ImageList imageList_icon;
+        private System.Windows.Forms.Button btnNewParser;
     }
 }

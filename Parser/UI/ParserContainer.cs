@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Parser.UI.Parsers;
 
@@ -50,6 +45,18 @@ namespace Parser.UI
             var tabPage = tabControl_Parsers.TabPages[e.Index];
             var tabRect = tabControl_Parsers.GetTabRect(e.Index);
             tabRect.Inflate(-2, -2);
+
+
+            //Set Tabcontrol border
+            Graphics g = e.Graphics;
+            Pen p = new Pen(Color.FromArgb(25, 25, 25), 8);
+            g.DrawRectangle(p, tabPage.Bounds);
+
+            //Set Border header
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(60, 60, 60)), e.Bounds);
+            Rectangle paddedBounds = e.Bounds;
+            paddedBounds.Inflate(-2, -2);
+
 
             if (e.Index == tabControl_Parsers.TabCount - 1)
             {
@@ -157,6 +164,12 @@ namespace Parser.UI
                         break;
                 }
             }
+        }
+
+        private void btnNewParser_Click(object sender, EventArgs e)
+        {
+            SelectingNewTab newTab = new SelectingNewTab();
+            newTab.Show();
         }
     }
 }

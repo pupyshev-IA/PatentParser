@@ -120,28 +120,10 @@
   <metadata name="menuStrip_Main.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>6, 4</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnNewParser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAArdJREFUaEPtmr9rk0EYxzMV+g9YUDq7CVkUB0GoKNhRqJjVSocEcTGF6qIdXGod
-        nCp0UgeTsaCNIAYCacUlOmSouFQCEoeQZCoUrs/33rvwplxz771YeRKfL3zhHe6efD+5H9zwZEQikWji
-        1O/3L/R6vWXyy263u8HJyEQuIqOJm15U5AwV2yKrcXCn09lCZhM/TDRxhor8PF6Uu9vt9q96vX7OYCQX
-        TR6sLG0dtf1+R71Ye6eerb5mZWSqUDZktHmbzeYuIUxHJAlkzuwAduXhhrp6+T5rPyq+GoLO5/OLBscv
-        moALSk/EyqLg/O11tbj5Qy292WdlZJpfWNcZKx92B8DlcvktoZyNiDyiCbj59ERsGRRD4QefFUsjGzIi
-        q81drVYrhHIpIvLIXPd6Is4JiuHfdP0YByMbMiKrzV2r1T4RylxE5NEEAd+IiDwSYAFO79Udpb7/Uepb
-        W6mn9O0aE2rWwIC1ArRrTKhZA+/3DC0J364xoRZgAfZIgAU4vQXYMSbUAizAHgnwCGD7Nkb4JD44NLQk
-        fLvGuDzq7f1PgeNv49PWSW/viQVucADGNsM/79qGLqfd0oB9wmFLhxrhrfDtGhNqARZgjwRYgNNbgB1j
-        Qi3AAuyRAP9F4Pjb+6S3cahZA9u396i3cahZA5+GBViAPfrvgGnCWDW13N3c0xkdTS2JgYt2Ipq+UAyt
-        QRzblgB7c+G5zhhvWyqVSmhbuh4ReXS8MQ1NXyjI2Y+XhxvTcrlckVCuREQJhEbNODT+PWwZnBNORqaP
-        21+GYBuNxldCuEM+r2GSCF2paNS0RcbFrVbrdzabXSKEW+QpDZNU6EpFo6arMEdjZQ0sVndWQ6TQdKFQ
-        uIfeRdx8uO45GZlwQZkzC1CsbGrYuNCoeZF8jYzrnpNxG+OCwpkN28YikWiMlMkcAe076AieAzgnAAAA
-        AElFTkSuQmCC
-</value>
-  </data>
   <metadata name="kryptonPalette.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>135, 4</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="kryptonPalette.ButtonSpecs.FormClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

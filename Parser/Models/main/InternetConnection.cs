@@ -12,7 +12,7 @@ namespace Parser.Models.main
 {
     static class InternetConnection
     {
-        public static bool CheckInternetConnection()
+        public static bool IsInternetConnected()
         {
             try
             {

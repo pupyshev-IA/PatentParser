@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Parser.Models.main;
@@ -10,11 +9,12 @@ namespace Parser.UI.Parsers
 {
     public partial class Espacenet : Form
     {
-        string path = @"../Результаты поиска/Espacenet/";
-        string fileName;
+        private string filePath = @"../Результаты поиска/Espacenet/";
+        private string fileName = "";
 
         Dictionary<string, List<string>> forExcel;
         public ExcelFiles excel { get; }
+        public SelectingFileName fileNameSelect;
 
         public Espacenet()
         {
@@ -24,30 +24,24 @@ namespace Parser.UI.Parsers
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (InternetConnection.CheckInternetConnection() == true)
-            {
-                if (File.Exists(path + fileName + ".xlsx"))
-                {
-                    MessageBox.Show("Файл с таким именем уже существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+            fileNameSelect = new SelectingFileName(filePath);
+            fileNameSelect.ShowDialog();
 
-                if (!excel.CheckFileName(fileName))
+            if (fileNameSelect.IsAcceptStatus())
+            {
+                fileName = fileNameSelect.GetFileName();
+
+                if (InternetConnection.IsInternetConnected())
                 {
                     forExcel = EspacenetParser.ParseEspacenet(tbKeysName.Text, tbKeysText.Text, tbPublicationNum.Text, tbApplicationNum.Text,
                     tbDocNum.Text, tbDate.Text, tbApplicant.Text, tbInventor.Text, tbSRS.Text, tbMPK.Text, tbDocAmount.Text);
 
-                    excel.CreateExcelFile(forExcel, path, fileName);
+                    excel.CreateExcelFile(forExcel, filePath, fileName);
                 }
                 else
                 {
-                    MessageBox.Show("Проверьте правильность введенного имени файла. Оно также не должно включать в себя " +
-                        "специальные символы '\\/:*?\"<>|'", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Проверьте подключение к Интеренету", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Проверьте подключение к Интеренету", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

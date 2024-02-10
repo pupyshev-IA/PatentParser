@@ -222,6 +222,12 @@
     <Compile Include="UI\FileExplorer.Designer.cs">
       <DependentUpon>FileExplorer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\SelectingFileName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SelectingFileName.Designer.cs">
+      <DependentUpon>SelectingFileName.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Parsers\Espacenet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +293,9 @@
     </Compile>
     <EmbeddedResource Include="UI\FileExplorer.resx">
       <DependentUpon>FileExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SelectingFileName.resx">
+      <DependentUpon>SelectingFileName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainContainer.resx">
       <DependentUpon>MainContainer.cs</DependentUpon>

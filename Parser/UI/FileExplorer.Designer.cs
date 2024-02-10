@@ -77,7 +77,7 @@
             // 
             this.textBox_Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Search.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox_Search.Location = new System.Drawing.Point(95, 4);
+            this.textBox_Search.Location = new System.Drawing.Point(95, 3);
             this.textBox_Search.Name = "textBox_Search";
             this.textBox_Search.Size = new System.Drawing.Size(192, 34);
             this.textBox_Search.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
@@ -162,6 +162,7 @@
             this.treeView_ExcelFiles.Size = new System.Drawing.Size(290, 720);
             this.treeView_ExcelFiles.StateImageList = this.imageList_treeIcons;
             this.treeView_ExcelFiles.TabIndex = 0;
+            this.treeView_ExcelFiles.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView_ExcelFiles_NodeMouseDoubleClick);
             // 
             // FileExplorer
             // 

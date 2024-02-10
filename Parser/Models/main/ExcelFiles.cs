@@ -5,13 +5,13 @@ using System.Reflection;
 using Excel = Microsoft.Office.Interop.Excel;
 using Parser.UI;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace Parser.Models.main
 {
     public class ExcelFiles
     {
         FileExplorer fileExplorer;
-        string specialChar = "\\|/?»:«*\"<>";
 
         public ExcelFiles() 
         {
@@ -44,15 +44,19 @@ namespace Parser.Models.main
                     column++;
                 }
 
-                workBook.SaveAs(filePath + fileName + ".xlsx");
+                workBook.SaveAs(Path.GetFullPath(filePath) + fileName + ".xlsx");
+
+
+                Marshal.ReleaseComObject(workSheet);
+
+                workBook.Close();
+                Marshal.ReleaseComObject(workBook);
+                
+                app.Quit();
+                Marshal.ReleaseComObject(app);
 
                 fileExplorer.UpdateFileExplorer();
                 fileExplorer.SelectNewFile(fileName);
-
-                workBook.Close();
-                app.Quit();
-                Marshal.ReleaseComObject(workBook);
-                Marshal.ReleaseComObject(app);
             }
             catch
             {
@@ -61,25 +65,6 @@ namespace Parser.Models.main
             finally
             {
 
-            }
-        }
-
-        public bool CheckFileName(string fileName)
-        {
-            if (!string.IsNullOrEmpty(fileName))
-            {
-                foreach (var item in specialChar)
-                {
-                    if (fileName.Contains(item))
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            else 
-            { 
-                return false;
             }
         }
     }

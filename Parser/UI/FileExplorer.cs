@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Diagnostics;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using OpenQA.Selenium.DevTools.V117.DOM;
 
 namespace Parser.UI
 {
@@ -76,6 +78,8 @@ namespace Parser.UI
 
         public void UpdateFileExplorer()
         {
+            treeView_ExcelFiles.Nodes.Clear();
+
             PopulateTreeView();
 
             foreach (TreeNode curNode in rootNode.Nodes)
@@ -86,7 +90,29 @@ namespace Parser.UI
 
         public void SelectNewFile(string fileName)
         {
-            treeView_ExcelFiles.SelectedNode = treeView_ExcelFiles.Nodes.Find(fileName, true)[0];
+            TreeNode foundNode = FindNodeByText(treeView_ExcelFiles.Nodes, fileName);
+            treeView_ExcelFiles.SelectedNode = foundNode;
+            treeView_ExcelFiles.Focus();
+        }
+
+        private TreeNode FindNodeByText(TreeNodeCollection nodes, string searchText)
+        {
+            foreach (TreeNode node in nodes)
+            {
+                if (node.Text.Equals(searchText, StringComparison.OrdinalIgnoreCase))
+                {
+                    return node;
+                }
+
+                // Рекурсивный поиск в дочерних узлах
+                TreeNode foundInChildren = FindNodeByText(node.Nodes, searchText);
+                if (foundInChildren != null)
+                {
+                    return foundInChildren;
+                }
+            }
+
+            return null;
         }
 
         private void textBox_Search_TextChanged(object sender, EventArgs e)
@@ -94,7 +120,6 @@ namespace Parser.UI
             if (string.IsNullOrEmpty(textBox_Search.Text))
             {
                 pictureBox_Clear.Image = imageList_formIcons.Images[0];
-                treeView_ExcelFiles.Nodes.Clear();
 
                 UpdateFileExplorer();
 
@@ -147,7 +172,6 @@ namespace Parser.UI
                 DialogResult _res = MessageBox.Show("Файл был удален или перемещен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 if (_res == DialogResult.OK)
                 {
-                    treeView_ExcelFiles.Nodes.Clear();
                     UpdateFileExplorer();
                 }
             }
@@ -156,21 +180,9 @@ namespace Parser.UI
         private void pictureBox_Clear_Click(object sender, EventArgs e)
         {
             textBox_Search.Clear();
-            treeView_ExcelFiles.Nodes.Clear();
 
             UpdateFileExplorer();
             pictureBox_Clear.Image = imageList_formIcons.Images[0];
         }
     }
 }
-
-
-//var excelApp = new Excel.Application();
-//excelApp.Visible = true;
-//Excel.Workbook wbv = excelApp.Workbooks.Open(path);
-
-//wbv.Close();
-//Marshal.ReleaseComObject(wbv);
-
-//excelApp.Quit();
-//Marshal.ReleaseComObject(excelApp);

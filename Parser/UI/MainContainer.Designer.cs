@@ -219,6 +219,7 @@
             this.Name = "MainContainer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainContainer";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainContainer_Load);
             this.menuStrip_Main.ResumeLayout(false);
             this.menuStrip_Main.PerformLayout();

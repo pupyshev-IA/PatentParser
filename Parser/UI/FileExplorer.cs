@@ -5,8 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Diagnostics;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using OpenQA.Selenium.DevTools.V117.DOM;
 
 namespace Parser.UI
 {
@@ -21,12 +19,16 @@ namespace Parser.UI
         }
 
 
-        public TreeNode rootNode;
+        DataView dataView;
+        TreeNode rootNode;
         string path = @"../Результаты поиска/";
 
         protected FileExplorer()
         {
             InitializeComponent();
+
+            dataView = DataView.getInstance();
+
             UpdateFileExplorer();
         }
 
@@ -104,7 +106,7 @@ namespace Parser.UI
                     return node;
                 }
 
-                // Рекурсивный поиск в дочерних узлах
+                //Рекурсивный поиск в дочерних узлах
                 TreeNode foundInChildren = FindNodeByText(node.Nodes, searchText);
                 if (foundInChildren != null)
                 {
@@ -154,6 +156,25 @@ namespace Parser.UI
                 catch 
                 {
                     continue;
+                }
+            }
+        }
+
+        private void treeView_ExcelFiles_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node.ImageKey == "folder")
+                return;
+
+            var _path = Path.Combine(Directory.GetCurrentDirectory(), @"../Результаты поиска/" + e.Node.Parent.Text + @"/" + e.Node.Text + ".xlsx");
+
+            if (File.Exists(_path))
+                dataView.SetFilePath(_path);
+            else
+            {
+                DialogResult _res = MessageBox.Show("Файл был удален или перемещен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (_res == DialogResult.OK)
+                {
+                    UpdateFileExplorer();
                 }
             }
         }

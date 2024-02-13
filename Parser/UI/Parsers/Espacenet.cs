@@ -13,8 +13,9 @@ namespace Parser.UI.Parsers
         private string fileName = "";
 
         Dictionary<string, List<string>> forExcel;
-        public ExcelFiles excel { get; }
-        public SelectingFileName fileNameSelect;
+        private EspacenetParser parser;
+        private ExcelFiles excel { get; }
+        private SelectingFileName fileNameSelect;
 
         public Espacenet()
         {
@@ -24,24 +25,25 @@ namespace Parser.UI.Parsers
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            fileNameSelect = new SelectingFileName(filePath);
-            fileNameSelect.ShowDialog();
-
-            if (fileNameSelect.IsAcceptStatus())
+            if (InternetConnection.IsInternetConnected())
             {
-                fileName = fileNameSelect.GetFileName();
+                fileNameSelect = new SelectingFileName(filePath);
+                fileNameSelect.ShowDialog();
 
-                if (InternetConnection.IsInternetConnected())
+                if (fileNameSelect.IsAcceptStatus())
                 {
-                    forExcel = EspacenetParser.ParseEspacenet(tbKeysName.Text, tbKeysText.Text, tbPublicationNum.Text, tbApplicationNum.Text,
-                    tbDocNum.Text, tbDate.Text, tbApplicant.Text, tbInventor.Text, tbSRS.Text, tbMPK.Text, tbDocAmount.Text);
+                    fileName = fileNameSelect.GetFileName();
+
+                    parser = new EspacenetParser();
+                    forExcel = parser.ParseEspacenet(tbKeysName.Text, tbKeysText.Text, tbPublicationNum.Text, tbApplicationNum.Text,
+                        tbDocNum.Text, tbDate.Text, tbApplicant.Text, tbInventor.Text, tbSRS.Text, tbMPK.Text, tbDocAmount.Text);
 
                     excel.CreateExcelFile(forExcel, filePath, fileName);
                 }
-                else
-                {
-                    MessageBox.Show("Проверьте подключение к Интеренету", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Проверьте подключение к Интеренету", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

@@ -79,7 +79,7 @@
             this.textBox_Search.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox_Search.Location = new System.Drawing.Point(95, 3);
             this.textBox_Search.Name = "textBox_Search";
-            this.textBox_Search.Size = new System.Drawing.Size(192, 34);
+            this.textBox_Search.Size = new System.Drawing.Size(192, 32);
             this.textBox_Search.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.textBox_Search.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.textBox_Search.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -87,7 +87,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.textBox_Search.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             this.textBox_Search.StateCommon.Border.Rounding = 5;
-            this.textBox_Search.StateCommon.Border.Width = 2;
+            this.textBox_Search.StateCommon.Border.Width = 1;
             this.textBox_Search.StateCommon.Content.Color1 = System.Drawing.Color.Black;
             this.textBox_Search.StateCommon.Content.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox_Search.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -162,6 +162,7 @@
             this.treeView_ExcelFiles.Size = new System.Drawing.Size(290, 720);
             this.treeView_ExcelFiles.StateImageList = this.imageList_treeIcons;
             this.treeView_ExcelFiles.TabIndex = 0;
+            this.treeView_ExcelFiles.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_ExcelFiles_AfterSelect);
             this.treeView_ExcelFiles.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView_ExcelFiles_NodeMouseDoubleClick);
             // 
             // FileExplorer

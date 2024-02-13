@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ComponentFactory.Krypton.Toolkit;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace Parser.UI
 {
@@ -25,6 +16,8 @@ namespace Parser.UI
 
             /*ПРИ ВОССТАНОВЛЕНИИ СОСТОЯНИЯ ПРИ ПОВТОРНОМ ЗАПУСКЕ ДОБАВИТЬ УСЛОВИЕ: результат диалогового окна (да) - > выполнить*/
             LoadParserContainer();
+
+            LoadDataView();
         }
 
 
@@ -46,6 +39,16 @@ namespace Parser.UI
             parserContainer.TopMost = true;
             splitContainer_in.Panel1.Controls.Add(parserContainer);
             parserContainer.Show();
+        }
+
+        private void LoadDataView()
+        {
+            DataView dataView = DataView.getInstance();
+            dataView.Dock = DockStyle.Fill;
+            dataView.TopLevel = false;
+            dataView.TopMost = true;
+            splitContainer_in.Panel2.Controls.Add(dataView);
+            dataView.Show();
         }
     }
 }

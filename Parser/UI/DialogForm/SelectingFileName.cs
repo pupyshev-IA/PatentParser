@@ -61,13 +61,13 @@ namespace Parser.UI
                 fileName = textBox_fileName.Text;
                 isAcceptStatus = true;
 
-                Hide();
+                Close();
             }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
         }
 
         private bool IsFileNameValid(string fileName)
@@ -101,6 +101,10 @@ namespace Parser.UI
             }
             else
             {
+                labelUnderNote.Text = "Необходимо заполнить поле.";
+                labelUnderNote.ForeColor = Color.Red;
+                textBox_fileName.Focus();
+
                 return false;
             }
         }

@@ -37,6 +37,26 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BitMiracle.LibTiff.NET, Version=2.4.649.0, Culture=neutral, PublicKeyToken=53879b3e20e7a7d6, processorArchitecture=MSIL">
       <HintPath>..\packages\BitMiracle.LibTiff.NET.2.4.649\lib\net40\BitMiracle.LibTiff.NET.dll</HintPath>
@@ -216,16 +236,22 @@
     <Compile Include="Models\main\Program.cs" />
     <Compile Include="Models\Parsers\EspacenetParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\DataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DataView.Designer.cs">
+      <DependentUpon>DataView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FileExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\FileExplorer.Designer.cs">
       <DependentUpon>FileExplorer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\SelectingFileName.cs">
+    <Compile Include="UI\DialogForm\SelectingFileName.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\SelectingFileName.Designer.cs">
+    <Compile Include="UI\DialogForm\SelectingFileName.Designer.cs">
       <DependentUpon>SelectingFileName.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Parsers\Espacenet.cs">
@@ -276,10 +302,10 @@
     <Compile Include="UI\Parsers\YandexPatents.Designer.cs">
       <DependentUpon>YandexPatents.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\SelectingNewTab.cs">
+    <Compile Include="UI\DialogForm\SelectingNewTab.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\SelectingNewTab.Designer.cs">
+    <Compile Include="UI\DialogForm\SelectingNewTab.Designer.cs">
       <DependentUpon>SelectingNewTab.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -291,10 +317,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\DataView.resx">
+      <DependentUpon>DataView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FileExplorer.resx">
       <DependentUpon>FileExplorer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\SelectingFileName.resx">
+    <EmbeddedResource Include="UI\DialogForm\SelectingFileName.resx">
       <DependentUpon>SelectingFileName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainContainer.resx">
@@ -315,7 +344,7 @@
     <EmbeddedResource Include="UI\Parsers\YandexPatents.resx">
       <DependentUpon>YandexPatents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\SelectingNewTab.resx">
+    <EmbeddedResource Include="UI\DialogForm\SelectingNewTab.resx">
       <DependentUpon>SelectingNewTab.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

@@ -8,9 +8,9 @@ using OpenQA.Selenium.Chrome;
 
 namespace Parser.Models.Parsers
 {
-    static class EspacenetParser
+    public class EspacenetParser
     {
-        public static Dictionary<string, List<string>> ParseEspacenet(string nameKeys, string nameOrEssay, string publicationNum, string applicationNum, 
+        public Dictionary<string, List<string>> ParseEspacenet(string nameKeys, string nameOrEssay, string publicationNum, string applicationNum, 
             string priorityNum, string publicationDate, string applicant, string inventor, string SRS, string MPK, string DocAmount)
         {
             List<string> _names, _links, _priorityDate, _inventor, _applicants, _srs, _ipc, _info;

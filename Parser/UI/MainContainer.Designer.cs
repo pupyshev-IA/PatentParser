@@ -167,7 +167,7 @@
             this.splitContainer_in.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.splitContainer_in.Panel2MinSize = 200;
             this.splitContainer_in.Size = new System.Drawing.Size(1160, 836);
-            this.splitContainer_in.SplitterDistance = 650;
+            this.splitContainer_in.SplitterDistance = 550;
             this.splitContainer_in.TabIndex = 0;
             // 
             // kryptonPalette

@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABU
-        CAAAAk1TRnQBSQFMAwEBAAEgAQABIAEAARkBAAEZAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMA
+        CAAAAk1TRnQBSQFMAwEBAAEwAQABMAEAARkBAAEZAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMA
         AWQDAAEZAwABAQEAAQgFAAHEAQkYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -169,19 +169,34 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnNewParser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAI/SURBVGhD7Zq9SgNBFIVTWtgaBV9BbdXa3kp9BFFsLJLY
-        +NMplsHKB0jUQiSKikbwBVT8gVSx8gVMAgELGe8ZZsImTDKZxchNvAcO2WLuzfl2Z5cpbkIkEokGTrVa
-        baparW6QDyqVyiEnIxM5g4wmbnxRkyQ1uyCrPnEBmU38MFHhKDV4b2nYDy7HgqbCxpOlraPyNw9qPXuu
-        lvdPWRmZjm4fdUabl1wwGN0J70MUdmEzp4bmdlh7cSvXBE0MEwbHLyrAB0oX4smi4fB8ViVX79TY2j0r
-        IxOyIeMxPWmbm+DTBscvKsCXTxdiy6AZGo+nn1ka2ZARWW1uMBgcv+ju4HOvC/GeoBnupuvPOBjZkBFZ
-        bW4wGBy/BFiAeZk18OxeSV2/faor8sxuybkm1KyBAWsFaNeaULMGfvmoG1ylr11rQi3AAuyRAAtwfAuw
-        Y02oBViAPRLgDsD2bIzw3bj+9W1wlb52rXG509n7T4GjZ+Neq93Ze2CBL18ZAGOb4c67tqHLcbc0YKc5
-        bOlQI7wVrl1rQi3AAuyRAAtwfAuwY02oBViAPRLgXwSOnr3bnY1DzRrYnr07nY1DzRq4FxZgAfbo3wFT
-        QX8NtawUdcbYQy20OGMLMfSFZmzHlgi2zdhSyuD41TqYhqEvNOTspe28zmpzBw2mQVRUiELj7mHL4D3h
-        ZGQ6KT41wdL1mcHoXhjQpOKybdJHRuYRgxEmA9140tyNJ0u/8WCjIvBJapamZiwHxOk3FfzOikQiEX8l
-        Ej8gan/uOao8wgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EAAACxABrSO9dQAAAj9JREFUaEPtmr1KA0EUhVNa2BoFX0Ft1dreSn0EUWwsktj40ymWwcoHSNRCJIqK
+        RvAFVPyBVLHyBUwCAQsZ7xlmwiZMMpnFyE28Bw7ZYu7N+XZnlyluQiQSiQZOtVptqlqtbpAPKpXKIScj
+        EzmDjCZufFGTJDW7IKs+cQGZTfwwUeEoNXhvadgPLseCpsLGk6Wto/I3D2o9e66W909ZGZmObh91RpuX
+        XDAY3QnvQxR2YTOnhuZ2WHtxK9cETQwTBscvKsAHShfiyaLh8HxWJVfv1NjaPSsjE7Ih4zE9aZub4NMG
+        xy8qwJdPF2LLoBkaj6efWRrZkBFZbW4wGBy/6O7gc68L8Z6gGe6m6884GNmQEVltbjAYHL8EWIB5mTXw
+        7F5JXb99qivyzG7JuSbUrIEBawVo15pQswZ++agbXKWvXWtCLcAC7JEAC3B8C7BjTagFWIA9EuAOwPZs
+        jPDduP71bXCVvnatcbnT2ftPgaNn416r3dl7YIEvXxkAY5vhzru2octxtzRgpzls6VAjvBWuXWtCLcAC
+        7JEAC3B8C7BjTagFWIA9EuBfBI6evdudjUPNGtievTudjUPNGrgXFmAB9ujfAVNBfw21rBR1xthDLbQ4
+        Ywsx9IVmbMeWCLbN2FLK4PjVOpiGoS805Oyl7bzOanMHDaZBVFSIQuPuYcvgPeFkZDopPjXB0vWZwehe
+        GNCk4rJt0kdG5hGDESYD3XjS3I0nS7/xYKMi8ElqlqZmLAfE6TcV/M6KRCIRfyUSPyBqf+45qjzCAAAA
+        AElFTkSuQmCC
 </value>
+  </data>
+  <data name="labelNote5.Text" xml:space="preserve">
+    <value>*Простой поиск предусматривает сбор данных по всем указанным патентным базам данных.
+Поиск в данном случае осуществляется по одному ключу.
+
+*Глобальный поиск предусматривает гибкую настройку каждой поисковой системы, после чего
+осуществляет сбор данных по всем базам единовременно.</value>
+  </data>
+  <data name="labelNote2.Text" xml:space="preserve">
+    <value>Предусмотрен поиск по следующим патентным базам данных:
+
+— Федеральный институт промышленной собственности (ФИПС);
+— Европейское патентное ведомство (Espacenet);
+— Всемирная организация интеллектуальной собственности (WIPO);
+— Яндекс.Патенты.</value>
   </data>
   <metadata name="imageList_icon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>145, 12</value>
@@ -191,7 +206,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB6
-        CAAAAk1TRnQBSQFMAwEBAAEoAQABKAEAARQBAAEUAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMA
+        CAAAAk1TRnQBSQFMAwEBAAE4AQABOAEAARQBAAEUAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMA
         AVADAAEUAwABAQEAAQgFAAFAAQYYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA

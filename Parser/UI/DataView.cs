@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.OleDb;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Parser.UI
@@ -46,6 +47,23 @@ namespace Parser.UI
 
             connection.Close();
             dataGridView_excel.DataSource = dataSet.Tables[0];
+        }
+
+        private void dataGridView_excel_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var cellURL = dataGridView_excel.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+
+                if (cellURL.Contains("http"))
+                {
+                    Process.Start(cellURL);
+                }
+            }
+            catch
+            {
+                return;
+            }
         }
     }
 }

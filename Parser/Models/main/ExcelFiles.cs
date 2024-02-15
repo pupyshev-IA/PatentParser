@@ -1,36 +1,28 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Reflection;
 using Excel = Microsoft.Office.Interop.Excel;
-using Parser.UI;
 using System.Runtime.InteropServices;
-using System.IO;
+using System.Linq;
 
 namespace Parser.Models.main
 {
     public class ExcelFiles
     {
-        FileExplorer fileExplorer;
-
-        public ExcelFiles() 
+        public bool CreateExcelFile(Dictionary<string, List<string>> forExcel, string filePath, string fileName)
         {
-            fileExplorer = FileExplorer.getInstance();
-        }
+            if (!forExcel["Название"].Any())
+                return false;
 
-        public void CreateExcelFile(Dictionary<string, List<string>> forExcel, string filePath, string fileName)
-        {
-            Excel.Application app;
-            Excel._Workbook workBook;
-            Excel._Worksheet workSheet;
+            Excel.Application app = new Excel.Application();
+            app.Visible = false;
+
+            Excel._Workbook workBook = app.Workbooks.Add(Missing.Value);
+            Excel._Worksheet workSheet = (Excel._Worksheet)workBook.ActiveSheet;
 
             try
             {
-                app = new Excel.Application();
-                app.Visible = false;
-
-                workBook = app.Workbooks.Add(Missing.Value);
-                workSheet = (Excel._Worksheet)workBook.ActiveSheet;
-
                 int column = 1;
                 foreach (KeyValuePair<string, List<string>> kvp in forExcel)
                 {
@@ -44,27 +36,22 @@ namespace Parser.Models.main
                 }
 
                 workBook.SaveAs(Path.GetFullPath(filePath) + fileName + ".xlsx");
-
-
+            }
+            finally
+            {
                 Marshal.ReleaseComObject(workSheet);
 
                 workBook.Close();
                 Marshal.ReleaseComObject(workBook);
-                
+
                 app.Quit();
                 Marshal.ReleaseComObject(app);
 
-                fileExplorer.UpdateFileExplorer();
-                fileExplorer.SelectNewFile(fileName);
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
-            catch
-            {
 
-            }
-            finally
-            {
-
-            }
+            return true;
         }
     }
 }

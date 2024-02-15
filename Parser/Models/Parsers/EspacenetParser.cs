@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Windows.Forms;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -10,6 +9,9 @@ namespace Parser.Models.Parsers
 {
     public class EspacenetParser
     {
+        IWebDriver driver;
+        IReadOnlyCollection<IWebElement> titleInfo, priorityDates, inventors, applicants, srs, ipc, info;
+
         public Dictionary<string, List<string>> ParseEspacenet(string nameKeys, string nameOrEssay, string publicationNum, string applicationNum, 
             string priorityNum, string publicationDate, string applicant, string inventor, string SRS, string MPK, string DocAmount)
         {
@@ -33,8 +35,8 @@ namespace Parser.Models.Parsers
 
             try
             {
-                IWebDriver driver = new ChromeDriver();
-                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+                driver = new ChromeDriver();
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
 
                 driver.Navigate().GoToUrl("https://worldwide.espacenet.com/advancedSearch?locale=en_EP");
 
@@ -55,14 +57,13 @@ namespace Parser.Models.Parsers
                 {
                     Thread.Sleep(2000);
 
-                    IReadOnlyCollection<IWebElement> titleInfo = driver.FindElements(By.ClassName("publicationLinkClass"));
-                    IReadOnlyCollection<IWebElement> priorityDates = driver.FindElements(By.ClassName("nowrap"));
-                    IReadOnlyCollection<IWebElement> inventors = driver.FindElements(By.ClassName("inventorColumn"));
-                    IReadOnlyCollection<IWebElement> applicants = driver.FindElements(By.ClassName("applicantColumn"));
-                    IReadOnlyCollection<IWebElement> srs = driver.FindElements(By.ClassName("cpcColumn"));
-                    IReadOnlyCollection<IWebElement> ipc = driver.FindElements(By.ClassName("ipcColumn"));
-                    IReadOnlyCollection<IWebElement> info = driver.FindElements(By.ClassName("publicationInfoColumn"));
-
+                    titleInfo = driver.FindElements(By.ClassName("publicationLinkClass"));
+                    priorityDates = driver.FindElements(By.ClassName("nowrap"));
+                    inventors = driver.FindElements(By.ClassName("inventorColumn"));
+                    applicants = driver.FindElements(By.ClassName("applicantColumn"));
+                    srs = driver.FindElements(By.ClassName("cpcColumn"));
+                    ipc = driver.FindElements(By.ClassName("ipcColumn"));
+                    info = driver.FindElements(By.ClassName("publicationInfoColumn"));
 
                     foreach (IWebElement element in titleInfo)
                     {
@@ -75,7 +76,6 @@ namespace Parser.Models.Parsers
                         result = Regex.Replace(result, "Priority date:", "").Replace("\r\n", "");
                         _priorityDate.Add(result);
                     }
-
                     foreach (IWebElement element in inventors)
                     {
                         string result = element.Text;
@@ -119,9 +119,10 @@ namespace Parser.Models.Parsers
                     return forExcel;
                 }
             }
-            catch(Exception ex) 
+            catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                driver.Quit();
                 return forExcel;
             }
         }

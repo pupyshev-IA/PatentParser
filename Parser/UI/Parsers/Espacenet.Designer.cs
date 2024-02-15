@@ -81,7 +81,7 @@
             this.lblParserName.ForeColor = System.Drawing.Color.White;
             this.lblParserName.Location = new System.Drawing.Point(3, 0);
             this.lblParserName.Name = "lblParserName";
-            this.lblParserName.Size = new System.Drawing.Size(682, 36);
+            this.lblParserName.Size = new System.Drawing.Size(692, 36);
             this.lblParserName.TabIndex = 1;
             this.lblParserName.Text = "Поиск по сайту Espacenet";
             this.lblParserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -100,7 +100,7 @@
             this.tableLayoutPanelBottom.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.tableLayoutPanelBottom.RowCount = 1;
             this.tableLayoutPanelBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelBottom.Size = new System.Drawing.Size(688, 50);
+            this.tableLayoutPanelBottom.Size = new System.Drawing.Size(698, 50);
             this.tableLayoutPanelBottom.TabIndex = 2;
             // 
             // tableLayoutPanelDocAmount
@@ -117,16 +117,16 @@
             this.tableLayoutPanelDocAmount.Name = "tableLayoutPanelDocAmount";
             this.tableLayoutPanelDocAmount.RowCount = 1;
             this.tableLayoutPanelDocAmount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelDocAmount.Size = new System.Drawing.Size(532, 44);
+            this.tableLayoutPanelDocAmount.Size = new System.Drawing.Size(540, 44);
             this.tableLayoutPanelDocAmount.TabIndex = 23;
             // 
             // tbDocAmount
             // 
             this.tbDocAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDocAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbDocAmount.Location = new System.Drawing.Point(205, 5);
+            this.tbDocAmount.Location = new System.Drawing.Point(208, 6);
             this.tbDocAmount.Name = "tbDocAmount";
-            this.tbDocAmount.Size = new System.Drawing.Size(137, 32);
+            this.tbDocAmount.Size = new System.Drawing.Size(139, 32);
             this.tbDocAmount.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbDocAmount.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbDocAmount.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -149,7 +149,7 @@
             this.lblDocAmount.ForeColor = System.Drawing.Color.White;
             this.lblDocAmount.Location = new System.Drawing.Point(3, 0);
             this.lblDocAmount.Name = "lblDocAmount";
-            this.lblDocAmount.Size = new System.Drawing.Size(196, 44);
+            this.lblDocAmount.Size = new System.Drawing.Size(199, 44);
             this.lblDocAmount.TabIndex = 24;
             this.lblDocAmount.Text = "Количество документов:";
             this.lblDocAmount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,9 +162,9 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(348, 5);
+            this.btnClear.Location = new System.Drawing.Point(353, 5);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(181, 33);
+            this.btnClear.Size = new System.Drawing.Size(184, 33);
             this.btnClear.TabIndex = 12;
             this.btnClear.Text = "Очистить форму";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -178,9 +178,9 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(551, 8);
+            this.btnSearch.Location = new System.Drawing.Point(559, 8);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(124, 33);
+            this.btnSearch.Size = new System.Drawing.Size(126, 33);
             this.btnSearch.TabIndex = 13;
             this.btnSearch.Text = "Поиск";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -195,7 +195,7 @@
             this.lblPublicationNum.ForeColor = System.Drawing.Color.White;
             this.lblPublicationNum.Location = new System.Drawing.Point(8, 284);
             this.lblPublicationNum.Name = "lblPublicationNum";
-            this.lblPublicationNum.Size = new System.Drawing.Size(202, 51);
+            this.lblPublicationNum.Size = new System.Drawing.Size(205, 51);
             this.lblPublicationNum.TabIndex = 4;
             this.lblPublicationNum.Text = "Номер публикации:";
             this.lblPublicationNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -209,7 +209,7 @@
             this.lblApplicationNum.ForeColor = System.Drawing.Color.White;
             this.lblApplicationNum.Location = new System.Drawing.Point(8, 335);
             this.lblApplicationNum.Name = "lblApplicationNum";
-            this.lblApplicationNum.Size = new System.Drawing.Size(202, 51);
+            this.lblApplicationNum.Size = new System.Drawing.Size(205, 51);
             this.lblApplicationNum.TabIndex = 5;
             this.lblApplicationNum.Text = "Номер заявки:";
             this.lblApplicationNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -223,7 +223,7 @@
             this.lblDocNum.ForeColor = System.Drawing.Color.White;
             this.lblDocNum.Location = new System.Drawing.Point(8, 386);
             this.lblDocNum.Name = "lblDocNum";
-            this.lblDocNum.Size = new System.Drawing.Size(202, 51);
+            this.lblDocNum.Size = new System.Drawing.Size(205, 51);
             this.lblDocNum.TabIndex = 6;
             this.lblDocNum.Text = "Номер приоритетного/ связанного документа:";
             this.lblDocNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -237,7 +237,7 @@
             this.lblDate.ForeColor = System.Drawing.Color.White;
             this.lblDate.Location = new System.Drawing.Point(8, 437);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(202, 51);
+            this.lblDate.Size = new System.Drawing.Size(205, 51);
             this.lblDate.TabIndex = 7;
             this.lblDate.Text = "Дата публикации:";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -251,7 +251,7 @@
             this.lblApplicant.ForeColor = System.Drawing.Color.White;
             this.lblApplicant.Location = new System.Drawing.Point(8, 488);
             this.lblApplicant.Name = "lblApplicant";
-            this.lblApplicant.Size = new System.Drawing.Size(202, 51);
+            this.lblApplicant.Size = new System.Drawing.Size(205, 51);
             this.lblApplicant.TabIndex = 8;
             this.lblApplicant.Text = "Заявитель(и):";
             this.lblApplicant.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -265,7 +265,7 @@
             this.lblInventor.ForeColor = System.Drawing.Color.White;
             this.lblInventor.Location = new System.Drawing.Point(8, 539);
             this.lblInventor.Name = "lblInventor";
-            this.lblInventor.Size = new System.Drawing.Size(202, 51);
+            this.lblInventor.Size = new System.Drawing.Size(205, 51);
             this.lblInventor.TabIndex = 9;
             this.lblInventor.Text = "Изобретатель(и):";
             this.lblInventor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -279,7 +279,7 @@
             this.lblSRS.ForeColor = System.Drawing.Color.White;
             this.lblSRS.Location = new System.Drawing.Point(8, 590);
             this.lblSRS.Name = "lblSRS";
-            this.lblSRS.Size = new System.Drawing.Size(202, 51);
+            this.lblSRS.Size = new System.Drawing.Size(205, 51);
             this.lblSRS.TabIndex = 10;
             this.lblSRS.Text = "CPC:";
             this.lblSRS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -291,7 +291,7 @@
             this.lblMPK.ForeColor = System.Drawing.Color.White;
             this.lblMPK.Location = new System.Drawing.Point(8, 641);
             this.lblMPK.Name = "lblMPK";
-            this.lblMPK.Size = new System.Drawing.Size(202, 51);
+            this.lblMPK.Size = new System.Drawing.Size(205, 51);
             this.lblMPK.TabIndex = 11;
             this.lblMPK.Text = "МПК:";
             this.lblMPK.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -304,7 +304,7 @@
             this.lblKeysName.ForeColor = System.Drawing.Color.White;
             this.lblKeysName.Location = new System.Drawing.Point(8, 20);
             this.lblKeysName.Name = "lblKeysName";
-            this.lblKeysName.Size = new System.Drawing.Size(202, 132);
+            this.lblKeysName.Size = new System.Drawing.Size(205, 132);
             this.lblKeysName.TabIndex = 1;
             this.lblKeysName.Text = "Ключевые слова в названии:";
             // 
@@ -317,7 +317,7 @@
             this.lblKeysText.Location = new System.Drawing.Point(5, 152);
             this.lblKeysText.Margin = new System.Windows.Forms.Padding(0);
             this.lblKeysText.Name = "lblKeysText";
-            this.lblKeysText.Size = new System.Drawing.Size(208, 132);
+            this.lblKeysText.Size = new System.Drawing.Size(211, 132);
             this.lblKeysText.TabIndex = 2;
             this.lblKeysText.Text = "Ключевые слова в названии изобретения или реферате:";
             // 
@@ -327,7 +327,7 @@
             this.kryptonPanelBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanelBackground.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanelBackground.Name = "kryptonPanelBackground";
-            this.kryptonPanelBackground.Padding = new System.Windows.Forms.Padding(15);
+            this.kryptonPanelBackground.Padding = new System.Windows.Forms.Padding(10, 15, 10, 15);
             this.kryptonPanelBackground.Size = new System.Drawing.Size(740, 900);
             this.kryptonPanelBackground.StateNormal.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.kryptonPanelBackground.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -340,10 +340,10 @@
             this.panelBorder.BackColor = System.Drawing.Color.White;
             this.panelBorder.Controls.Add(this.kryptonPanelMain);
             this.panelBorder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBorder.Location = new System.Drawing.Point(15, 15);
+            this.panelBorder.Location = new System.Drawing.Point(10, 15);
             this.panelBorder.Name = "panelBorder";
             this.panelBorder.Padding = new System.Windows.Forms.Padding(1);
-            this.panelBorder.Size = new System.Drawing.Size(710, 870);
+            this.panelBorder.Size = new System.Drawing.Size(720, 870);
             this.panelBorder.TabIndex = 5;
             // 
             // kryptonPanelMain
@@ -355,7 +355,7 @@
             this.kryptonPanelMain.Location = new System.Drawing.Point(1, 1);
             this.kryptonPanelMain.Name = "kryptonPanelMain";
             this.kryptonPanelMain.Padding = new System.Windows.Forms.Padding(10);
-            this.kryptonPanelMain.Size = new System.Drawing.Size(708, 868);
+            this.kryptonPanelMain.Size = new System.Drawing.Size(718, 868);
             this.kryptonPanelMain.StateNormal.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.kryptonPanelMain.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.kryptonPanelMain.StateNormal.ColorAngle = 30F;
@@ -404,16 +404,16 @@
             this.tableLayoutPanelCenter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
             this.tableLayoutPanelCenter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
             this.tableLayoutPanelCenter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanelCenter.Size = new System.Drawing.Size(688, 758);
+            this.tableLayoutPanelCenter.Size = new System.Drawing.Size(698, 758);
             this.tableLayoutPanelCenter.TabIndex = 3;
             // 
             // tbMPK
             // 
             this.tbMPK.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbMPK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbMPK.Location = new System.Drawing.Point(216, 644);
+            this.tbMPK.Location = new System.Drawing.Point(219, 644);
             this.tbMPK.Name = "tbMPK";
-            this.tbMPK.Size = new System.Drawing.Size(464, 32);
+            this.tbMPK.Size = new System.Drawing.Size(471, 32);
             this.tbMPK.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbMPK.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbMPK.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -431,9 +431,9 @@
             // 
             this.tbSRS.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbSRS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSRS.Location = new System.Drawing.Point(216, 593);
+            this.tbSRS.Location = new System.Drawing.Point(219, 593);
             this.tbSRS.Name = "tbSRS";
-            this.tbSRS.Size = new System.Drawing.Size(464, 32);
+            this.tbSRS.Size = new System.Drawing.Size(471, 32);
             this.tbSRS.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbSRS.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbSRS.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -451,9 +451,9 @@
             // 
             this.tbInventor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbInventor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbInventor.Location = new System.Drawing.Point(216, 542);
+            this.tbInventor.Location = new System.Drawing.Point(219, 542);
             this.tbInventor.Name = "tbInventor";
-            this.tbInventor.Size = new System.Drawing.Size(464, 32);
+            this.tbInventor.Size = new System.Drawing.Size(471, 32);
             this.tbInventor.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbInventor.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbInventor.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -471,9 +471,9 @@
             // 
             this.tbApplicant.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbApplicant.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbApplicant.Location = new System.Drawing.Point(216, 491);
+            this.tbApplicant.Location = new System.Drawing.Point(219, 491);
             this.tbApplicant.Name = "tbApplicant";
-            this.tbApplicant.Size = new System.Drawing.Size(464, 32);
+            this.tbApplicant.Size = new System.Drawing.Size(471, 32);
             this.tbApplicant.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbApplicant.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbApplicant.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -491,9 +491,9 @@
             // 
             this.tbDate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbDate.Location = new System.Drawing.Point(216, 440);
+            this.tbDate.Location = new System.Drawing.Point(219, 440);
             this.tbDate.Name = "tbDate";
-            this.tbDate.Size = new System.Drawing.Size(464, 32);
+            this.tbDate.Size = new System.Drawing.Size(471, 32);
             this.tbDate.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbDate.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbDate.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -511,9 +511,9 @@
             // 
             this.tbDocNum.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbDocNum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbDocNum.Location = new System.Drawing.Point(216, 389);
+            this.tbDocNum.Location = new System.Drawing.Point(219, 389);
             this.tbDocNum.Name = "tbDocNum";
-            this.tbDocNum.Size = new System.Drawing.Size(464, 32);
+            this.tbDocNum.Size = new System.Drawing.Size(471, 32);
             this.tbDocNum.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbDocNum.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbDocNum.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -531,9 +531,9 @@
             // 
             this.tbApplicationNum.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbApplicationNum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbApplicationNum.Location = new System.Drawing.Point(216, 338);
+            this.tbApplicationNum.Location = new System.Drawing.Point(219, 338);
             this.tbApplicationNum.Name = "tbApplicationNum";
-            this.tbApplicationNum.Size = new System.Drawing.Size(464, 32);
+            this.tbApplicationNum.Size = new System.Drawing.Size(471, 32);
             this.tbApplicationNum.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbApplicationNum.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbApplicationNum.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -551,9 +551,9 @@
             // 
             this.tbPublicationNum.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbPublicationNum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPublicationNum.Location = new System.Drawing.Point(216, 287);
+            this.tbPublicationNum.Location = new System.Drawing.Point(219, 287);
             this.tbPublicationNum.Name = "tbPublicationNum";
-            this.tbPublicationNum.Size = new System.Drawing.Size(464, 32);
+            this.tbPublicationNum.Size = new System.Drawing.Size(471, 32);
             this.tbPublicationNum.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbPublicationNum.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbPublicationNum.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -571,10 +571,10 @@
             // 
             this.tbKeysText.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbKeysText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbKeysText.Location = new System.Drawing.Point(216, 155);
+            this.tbKeysText.Location = new System.Drawing.Point(219, 155);
             this.tbKeysText.Multiline = true;
             this.tbKeysText.Name = "tbKeysText";
-            this.tbKeysText.Size = new System.Drawing.Size(464, 126);
+            this.tbKeysText.Size = new System.Drawing.Size(471, 126);
             this.tbKeysText.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbKeysText.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbKeysText.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -592,10 +592,10 @@
             // 
             this.tbKeysName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbKeysName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbKeysName.Location = new System.Drawing.Point(216, 23);
+            this.tbKeysName.Location = new System.Drawing.Point(219, 23);
             this.tbKeysName.Multiline = true;
             this.tbKeysName.Name = "tbKeysName";
-            this.tbKeysName.Size = new System.Drawing.Size(464, 126);
+            this.tbKeysName.Size = new System.Drawing.Size(471, 126);
             this.tbKeysName.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbKeysName.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(129)))), ((int)(((byte)(237)))));
             this.tbKeysName.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -622,14 +622,14 @@
             this.tableLayoutPanelTop.RowCount = 2;
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanelTop.Size = new System.Drawing.Size(688, 40);
+            this.tableLayoutPanelTop.Size = new System.Drawing.Size(698, 40);
             this.tableLayoutPanelTop.TabIndex = 0;
             // 
             // panelUnderline
             // 
             this.panelUnderline.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelUnderline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            this.panelUnderline.Location = new System.Drawing.Point(239, 39);
+            this.panelUnderline.Location = new System.Drawing.Point(244, 39);
             this.panelUnderline.Name = "panelUnderline";
             this.panelUnderline.Size = new System.Drawing.Size(210, 1);
             this.panelUnderline.TabIndex = 3;

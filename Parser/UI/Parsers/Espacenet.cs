@@ -13,10 +13,11 @@ namespace Parser.UI.Parsers
         private string filePath = @"../Результаты поиска/Espacenet/";
         private string fileName = "";
 
+        Dictionary<string, string> formData;
         Dictionary<string, List<string>> forExcel;
         private SelectingFileName fileNameSelect;
         private EspacenetParser parser;
-        private ExcelFiles excel { get; }
+        private ExcelFiles excel;
         private FileExplorer fileExplorer;
 
 
@@ -36,11 +37,25 @@ namespace Parser.UI.Parsers
 
                 if (fileNameSelect.IsAcceptStatus())
                 {
+                    formData = new Dictionary<string, string>
+                    {
+                        { "KeysName", tbKeysName.Text },
+                        { "KeysText", tbKeysText.Text },
+                        { "PublicationNum", tbPublicationNum.Text },
+                        { "ApplicationNum", tbApplicationNum.Text },
+                        { "DocNum", tbDocNum.Text },
+                        { "Date", tbDate.Text },
+                        { "Applicant", tbApplicant.Text },
+                        { "Inventor", tbInventor.Text },
+                        { "SRS", tbSRS.Text },
+                        { "MPK", tbMPK.Text },
+                        { "DocAmount", tbDocAmount.Text }
+                    };
+
                     fileName = fileNameSelect.GetFileName();
 
                     parser = new EspacenetParser();
-                    forExcel = parser.ParseEspacenet(tbKeysName.Text, tbKeysText.Text, tbPublicationNum.Text, tbApplicationNum.Text,
-                        tbDocNum.Text, tbDate.Text, tbApplicant.Text, tbInventor.Text, tbSRS.Text, tbMPK.Text, tbDocAmount.Text);
+                    forExcel = parser.ParseEspacenet(formData);
 
                     bool isSuccess = excel.CreateExcelFile(forExcel, filePath, fileName);
 

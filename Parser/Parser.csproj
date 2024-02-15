@@ -235,6 +235,7 @@
     <Compile Include="Models\main\ExcelFiles.cs" />
     <Compile Include="Models\main\Program.cs" />
     <Compile Include="Models\Parsers\EspacenetParser.cs" />
+    <Compile Include="Models\Parsers\FipsParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\DataView.cs">
       <SubType>Form</SubType>

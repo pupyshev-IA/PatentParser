@@ -12,8 +12,7 @@ namespace Parser.Models.Parsers
         IWebDriver driver;
         IReadOnlyCollection<IWebElement> titleInfo, priorityDates, inventors, applicants, srs, ipc, info;
 
-        public Dictionary<string, List<string>> ParseEspacenet(string nameKeys, string nameOrEssay, string publicationNum, string applicationNum, 
-            string priorityNum, string publicationDate, string applicant, string inventor, string SRS, string MPK, string DocAmount)
+        public Dictionary<string, List<string>> ParseEspacenet(Dictionary<string, string> formData)
         {
             List<string> _names, _links, _priorityDate, _inventor, _applicants, _srs, _ipc, _info;
 
@@ -29,8 +28,8 @@ namespace Parser.Models.Parsers
                 { "Информация о публикации", _info = new List < string >() },
             };
 
-            if (String.IsNullOrEmpty(DocAmount))
-                DocAmount = "25";
+            if (String.IsNullOrEmpty(formData["DocAmount"]))
+                formData["DocAmount"] = "25";
 
 
             try
@@ -40,16 +39,16 @@ namespace Parser.Models.Parsers
 
                 driver.Navigate().GoToUrl("https://worldwide.espacenet.com/advancedSearch?locale=en_EP");
 
-                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[2]/div[1]/span[3]/textarea")).SendKeys(nameKeys);
-                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[2]/div[2]/span[3]/textarea")).SendKeys(nameOrEssay);
-                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[3]/div[1]/span[3]/textarea")).SendKeys(publicationNum);
-                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[3]/div[2]/span[3]/textarea")).SendKeys(applicationNum);
-                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[3]/div[3]/span[3]/textarea")).SendKeys(priorityNum);
-                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[4]/div/span[3]/textarea")).SendKeys(publicationDate);
-                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[5]/div[1]/span[3]/textarea")).SendKeys(applicant);
-                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[5]/div[2]/span[3]/textarea")).SendKeys(inventor);
-                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[6]/div[1]/span[3]/textarea")).SendKeys(SRS);
-                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[6]/div[2]/span[3]/textarea")).SendKeys(MPK);
+                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[2]/div[1]/span[3]/textarea")).SendKeys(formData["KeysName"]);
+                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[2]/div[2]/span[3]/textarea")).SendKeys(formData["KeysText"]);
+                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[3]/div[1]/span[3]/textarea")).SendKeys(formData["PublicationNum"]);
+                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[3]/div[2]/span[3]/textarea")).SendKeys(formData["ApplicationNum"]);
+                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[3]/div[3]/span[3]/textarea")).SendKeys(formData["DocNum"]);
+                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[4]/div/span[3]/textarea")).SendKeys(formData["Date"]);
+                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[5]/div[1]/span[3]/textarea")).SendKeys(formData["Applicant"]);
+                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[5]/div[2]/span[3]/textarea")).SendKeys(formData["Inventor"]);
+                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[6]/div[1]/span[3]/textarea")).SendKeys(formData["SRS"]);
+                driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/fieldset[6]/div[2]/span[3]/textarea")).SendKeys(formData["MPK"]);
 
                 driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/div/div[2]/div[2]/div/span/input")).Click();
 
@@ -108,7 +107,7 @@ namespace Parser.Models.Parsers
                     }
 
 
-                    if ((Int32.Parse(DocAmount) > _names.Count) & (driver.FindElement(By.Id("nextPageLinkBottom")).Displayed))
+                    if ((Int32.Parse(formData["DocAmount"]) > _names.Count) & (driver.FindElement(By.Id("nextPageLinkBottom")).Displayed))
                     {
                         driver.FindElement(By.Id("nextPageLinkBottom")).Click();
                         continue;

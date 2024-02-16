@@ -314,10 +314,9 @@
             this.lblKeysText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblKeysText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblKeysText.ForeColor = System.Drawing.Color.White;
-            this.lblKeysText.Location = new System.Drawing.Point(5, 152);
-            this.lblKeysText.Margin = new System.Windows.Forms.Padding(0);
+            this.lblKeysText.Location = new System.Drawing.Point(8, 152);
             this.lblKeysText.Name = "lblKeysText";
-            this.lblKeysText.Size = new System.Drawing.Size(211, 132);
+            this.lblKeysText.Size = new System.Drawing.Size(205, 132);
             this.lblKeysText.TabIndex = 2;
             this.lblKeysText.Text = "Ключевые слова в названии изобретения или реферате:";
             // 

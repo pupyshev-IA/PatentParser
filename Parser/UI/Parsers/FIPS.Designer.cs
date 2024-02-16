@@ -100,10 +100,9 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblName.ForeColor = System.Drawing.Color.White;
-            this.lblName.Location = new System.Drawing.Point(5, 56);
-            this.lblName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblName.Location = new System.Drawing.Point(8, 56);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(275, 36);
+            this.lblName.Size = new System.Drawing.Size(269, 36);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Название:";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

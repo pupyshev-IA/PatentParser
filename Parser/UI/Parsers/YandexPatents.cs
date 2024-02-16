@@ -1,28 +1,113 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
+using Parser.Models.main;
+using Parser.Models.Parsers;
 
 namespace Parser.UI.Parsers
 {
     public partial class YandexPatents : Form
     {
+        private string filePath = @"../Результаты поиска/Яндекс.Патенты/";
+        private string fileName = "";
+
+        Dictionary<string, string> formData;
+        Dictionary<string, List<string>> forExcel;
+        private SelectingFileName fileNameSelect;
+        private YandexPatentsParser parser;
+        private ExcelFiles excel;
+        private FileExplorer fileExplorer;
+
+
         public YandexPatents()
         {
             InitializeComponent();
+
+            cbDate.SelectedIndex = 0;
+            chbApplication.Checked = true;
+            chbPatent.Checked = true;
+
+            excel = new ExcelFiles();
+            fileExplorer = FileExplorer.getInstance();
         }
 
-        private void YandexPatents_Load(object sender, EventArgs e)
+        private void ParseData(Object stateInfo)
         {
+            if (InternetConnection.IsInternetConnected())
+            {
+                fileNameSelect = new SelectingFileName(filePath);
+                fileNameSelect.ShowDialog();
+
+                if (fileNameSelect.IsAcceptStatus())
+                {
+                    formData = new Dictionary<string, string>
+                    {
+                        { "Keys", tbKeys.Text },
+                        { "Document", tbDocument.Text },
+                        { "Application", tbApplication.Text },
+                        { "WhichDate", cbDate.SelectedItem.ToString() },
+                        { "DateStart", mtbStart.Text },
+                        { "DateEnd", mtbEnd.Text },
+                        { "Name", tbName.Text },
+                        { "Author", tbAuthor.Text },
+                        { "Patentee", tbPatentee.Text },
+                        { "isApplication", chbApplication.CheckState.ToString() },
+                        { "isPatent", chbPatent.CheckState.ToString() },
+                        { "DocAmount", tbDocAmount.Text }
+                    };
+                    fileName = fileNameSelect.GetFileName();
+
+                    parser = new YandexPatentsParser();
+                    forExcel = parser.ParseYandexPatents(formData);
+
+                    bool isSuccess = excel.CreateExcelFile(forExcel, filePath, fileName);
+
+                    if (isSuccess)
+                    {
+                        this.BeginInvoke((MethodInvoker)delegate
+                        {
+                            // Код для выполнения в UI-потоке
+                            fileExplorer.UpdateFileExplorer();
+                            fileExplorer.SelectNewFile(fileName);
+                        });
+                    }
+                    else
+                    {
+                        MessageBox.Show("По данному запросу ничего не найдено." +
+                            "\nПопробуйте изменить запрос или воспользоваться другими поисковыми системами.", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Проверьте подключение к Интеренету", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            ThreadPool.QueueUserWorkItem(ParseData);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            foreach (Control el in tableLayoutPanelCenter.Controls)
+            {
+                if (el is KryptonTextBox)
+                    el.Text = "";
+            }
+
             cbDate.SelectedIndex = 0;
+
+            mtbStart.Text = "";
+            mtbEnd.Text = "";
 
             chbApplication.Checked = true;
             chbPatent.Checked = true;
+
+            tbDocAmount.Text = "";
         }
     }
 }

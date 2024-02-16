@@ -238,16 +238,16 @@
     <Compile Include="Models\Parsers\FipsParser.cs" />
     <Compile Include="Models\Parsers\YandexPatentsParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\DataView.cs">
+    <Compile Include="UI\main\DataView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\DataView.Designer.cs">
+    <Compile Include="UI\main\DataView.Designer.cs">
       <DependentUpon>DataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FileExplorer.cs">
+    <Compile Include="UI\main\FileExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FileExplorer.Designer.cs">
+    <Compile Include="UI\main\FileExplorer.Designer.cs">
       <DependentUpon>FileExplorer.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\DialogForm\SelectingFileName.cs">
@@ -274,16 +274,16 @@
     <Compile Include="UI\Parsers\GlobalSearch.Designer.cs">
       <DependentUpon>GlobalSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\MainContainer.cs">
+    <Compile Include="UI\main\MainContainer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\MainContainer.Designer.cs">
+    <Compile Include="UI\main\MainContainer.Designer.cs">
       <DependentUpon>MainContainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ParserContainer.cs">
+    <Compile Include="UI\main\ParserContainer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ParserContainer.Designer.cs">
+    <Compile Include="UI\main\ParserContainer.Designer.cs">
       <DependentUpon>ParserContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Parsers\SimpleSearch.cs">
@@ -319,19 +319,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\DataView.resx">
+    <EmbeddedResource Include="UI\main\DataView.resx">
       <DependentUpon>DataView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FileExplorer.resx">
+    <EmbeddedResource Include="UI\main\FileExplorer.resx">
       <DependentUpon>FileExplorer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DialogForm\SelectingFileName.resx">
       <DependentUpon>SelectingFileName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\MainContainer.resx">
+    <EmbeddedResource Include="UI\main\MainContainer.resx">
       <DependentUpon>MainContainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ParserContainer.resx">
+    <EmbeddedResource Include="UI\main\ParserContainer.resx">
       <DependentUpon>ParserContainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Parsers\Espacenet.resx">

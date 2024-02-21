@@ -108,7 +108,7 @@
             this.btnNewParser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNewParser.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnNewParser.ForeColor = System.Drawing.Color.Navy;
-            this.btnNewParser.Image = ((System.Drawing.Image)(resources.GetObject("btnNewParser.Image")));
+            this.btnNewParser.Image = global::Parser.Properties.Resources.plus;
             this.btnNewParser.Location = new System.Drawing.Point(403, 3);
             this.btnNewParser.Name = "btnNewParser";
             this.btnNewParser.Size = new System.Drawing.Size(50, 49);

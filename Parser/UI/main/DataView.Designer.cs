@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.btnAnalytics = new System.Windows.Forms.Button();
             this.label_Search = new System.Windows.Forms.Label();
             this.panelBackground = new System.Windows.Forms.Panel();
             this.dataGridView_excel = new System.Windows.Forms.DataGridView();
@@ -42,12 +43,29 @@
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panelHeader.Controls.Add(this.btnAnalytics);
             this.panelHeader.Controls.Add(this.label_Search);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(800, 40);
             this.panelHeader.TabIndex = 0;
+            // 
+            // btnAnalytics
+            // 
+            this.btnAnalytics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAnalytics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            this.btnAnalytics.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnalytics.FlatAppearance.BorderSize = 0;
+            this.btnAnalytics.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAnalytics.ForeColor = System.Drawing.Color.Navy;
+            this.btnAnalytics.Image = global::Parser.Properties.Resources.analytics;
+            this.btnAnalytics.Location = new System.Drawing.Point(763, 2);
+            this.btnAnalytics.Name = "btnAnalytics";
+            this.btnAnalytics.Size = new System.Drawing.Size(35, 35);
+            this.btnAnalytics.TabIndex = 1;
+            this.btnAnalytics.UseVisualStyleBackColor = false;
+            this.btnAnalytics.Click += new System.EventHandler(this.btnAnalytics_Click);
             // 
             // label_Search
             // 
@@ -136,5 +154,6 @@
         private System.Windows.Forms.Panel panelBackground;
         private System.Windows.Forms.DataGridView dataGridView_excel;
         private System.Windows.Forms.Label label_Search;
+        private System.Windows.Forms.Button btnAnalytics;
     }
 }

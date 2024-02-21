@@ -1,7 +1,9 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.OleDb;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Parser.UI.Analytics;
 
 namespace Parser.UI
 {
@@ -63,6 +65,19 @@ namespace Parser.UI
             catch
             {
                 return;
+            }
+        }
+
+        private void btnAnalytics_Click(object sender, EventArgs e)
+        {
+            if (dataSet != null)
+            {
+                Dashboard dashboard = new Dashboard(dataSet);
+                dashboard.Show();
+            }
+            else
+            {
+                MessageBox.Show("Необходимо выбрать исходный файл для анализа.", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

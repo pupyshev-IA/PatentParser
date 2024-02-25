@@ -52,6 +52,11 @@ namespace Parser.Models.Parsers
 
                 driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div/div/form/div/div[2]/div[2]/div/span/input")).Click();
 
+                Thread.Sleep(1000);
+                string newKey = "ResultAmount";
+                string newValue = driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div/div[2]/div[3]/div[1]/div/p[1]/b")).Text;
+                formData.Add(newKey, newValue);
+
                 while (true)
                 {
                     Thread.Sleep(2000);

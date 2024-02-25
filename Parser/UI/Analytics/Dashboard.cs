@@ -7,14 +7,19 @@ namespace Parser.UI.Analytics
 {
     public partial class Dashboard : Form
     {
-        DataSet ds;
+        DataSet dataSet;
+        string filePath;
 
-        public Dashboard(DataSet ds)
+        private optionRequestInfo requestInfo;
+        private optionDataView dataView;
+
+        public Dashboard(DataSet ds, string filePath)
         {
             InitializeComponent();
 
-            this.ds = new DataSet();
-            this.ds = ds;
+            dataSet = new DataSet();
+            dataSet = ds;
+            this.filePath = filePath;
 
             //Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
         }
@@ -30,37 +35,17 @@ namespace Parser.UI.Analytics
         //    int nHeightEllipse
         //);
 
+        private void OptionChanged()
+        {
+            foreach (Control el in panelNavigation.Controls)
+                if (el is Button)
+                    el.BackColor = Color.FromArgb(40, 40, 40);
+
+            requestInfo.Hide();
+            dataView.Hide();
+        }
+
         private void Dashboard_Load(object sender, EventArgs e)
-        {
-            pnlBar.Height = btnTable.Height;
-            pnlBar.Top = btnTable.Top + 6;
-            pnlBar.Left = btnTable.Left;
-            btnTable.BackColor = Color.FromArgb(70, 70, 70);
-
-            lblName.Text = btnTable.Text;
-
-            pnlDataLoader.Controls.Clear();
-            InitialData initialData = new InitialData(ds) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            pnlDataLoader.Controls.Add(initialData);
-            initialData.Show();
-        }
-
-        private void btnTable_Click(object sender, EventArgs e)
-        {
-            pnlBar.Height = btnTable.Height;
-            pnlBar.Top = btnTable.Top + 6;
-            pnlBar.Left = btnTable.Left;
-            btnTable.BackColor = Color.FromArgb(70, 70, 70);
-
-            lblName.Text = btnTable.Text;
-
-            pnlDataLoader.Controls.Clear();
-            InitialData initialData = new InitialData(ds) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            pnlDataLoader.Controls.Add(initialData);
-            initialData.Show();
-        }
-
-        private void btnInfo_Click(object sender, EventArgs e)
         {
             pnlBar.Height = btnInfo.Height;
             pnlBar.Top = btnInfo.Top + 6;
@@ -68,16 +53,33 @@ namespace Parser.UI.Analytics
             btnInfo.BackColor = Color.FromArgb(70, 70, 70);
 
             lblName.Text = btnInfo.Text;
+
+            requestInfo = new optionRequestInfo(filePath) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            pnlFormLoader.Controls.Add(requestInfo);
+            requestInfo.Show();
+
+            dataView = new optionDataView(dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            pnlFormLoader.Controls.Add(dataView);
         }
 
-        private void btnTable_Leave(object sender, EventArgs e)
+        private void btnInfo_Click(object sender, EventArgs e)
         {
-            btnTable.BackColor = Color.FromArgb(40, 40, 40);
+            OptionChanged();
+            lblName.Text = btnInfo.Text;
+            requestInfo.Show();
+
+            pnlBar.Top = btnInfo.Top + 6;
+            btnInfo.BackColor = Color.FromArgb(70, 70, 70);
         }
 
-        private void btnInfo_Leave(object sender, EventArgs e)
+        private void btnTable_Click(object sender, EventArgs e)
         {
-            btnInfo.BackColor = Color.FromArgb(40, 40, 40);
+            OptionChanged();
+            lblName.Text = btnTable.Text;
+            dataView.Show();
+
+            pnlBar.Top = btnTable.Top + 6;
+            btnTable.BackColor = Color.FromArgb(70, 70, 70);
         }
     }
 }

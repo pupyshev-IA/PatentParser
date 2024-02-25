@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Parser.UI.Analytics
 {
-    public partial class InitialData : Form
+    public partial class optionDataView : Form
     {
-        public InitialData(DataSet ds)
+        public optionDataView(DataSet ds)
         {
             InitializeComponent();
 

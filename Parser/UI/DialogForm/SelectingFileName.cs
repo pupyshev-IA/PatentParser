@@ -10,15 +10,17 @@ namespace Parser.UI
     {
         private bool isAcceptStatus;
         private string fileName;
-        private string filePath;
+        private string excelFilePath;
+        private string txtFilePath;
 
         string specialChar = "\\|/?»:«*\"<>";
 
-        public SelectingFileName(string path)
+        public SelectingFileName(string excelPath, string txtPath)
         {
             InitializeComponent();
 
-            filePath = path;
+            excelFilePath = excelPath;
+            txtFilePath = txtPath;
             isAcceptStatus = false;
 
             labelUnderNote.Text = "Укажите имя файла.";
@@ -72,7 +74,7 @@ namespace Parser.UI
 
         private bool IsFileNameValid(string fileName)
         {
-            if (File.Exists(filePath + fileName + ".xlsx"))
+            if (File.Exists(excelFilePath + fileName + ".xlsx") || File.Exists(txtFilePath + fileName + ".txt"))
             {
                 labelUnderNote.Text = "Файл с таким именем уже существует.";
                 labelUnderNote.ForeColor = Color.Red;

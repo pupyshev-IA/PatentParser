@@ -21,6 +21,14 @@ namespace Parser.Models.main
 
             List<string> Dirs = new List<string>()
             {
+                @"../search_info",
+                @"../search_info/WIPO",
+                @"../search_info/Espacenet",
+                @"../search_info/ФИПС",
+                @"../search_info/Яндекс.Патенты",
+                @"../search_info/Глобальный поиск",
+                @"../search_info/Простой поиск",
+
                 @"../Результаты поиска",
                 @"../Результаты поиска/WIPO",
                 @"../Результаты поиска/Espacenet",

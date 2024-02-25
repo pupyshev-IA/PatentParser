@@ -10,7 +10,8 @@ namespace Parser.UI.Parsers
 {
     public partial class FIPS : Form
     {
-        private string filePath = @"../Результаты поиска/ФИПС/";
+        private string excelFilePath = @"../Результаты поиска/ФИПС/";
+        private string txtFilePath = @"../search_info/ФИПС/";
         private string fileName = "";
 
         Dictionary<string, string> formData;
@@ -18,6 +19,7 @@ namespace Parser.UI.Parsers
         private SelectingFileName fileNameSelect;
         private FipsParser parser;
         private ExcelFiles excel;
+        private TextFiles txt;
         private FileExplorer fileExplorer;
 
 
@@ -25,6 +27,7 @@ namespace Parser.UI.Parsers
         {
             InitializeComponent();
             excel = new ExcelFiles();
+            txt = new TextFiles();
             fileExplorer = FileExplorer.getInstance();
         }
 
@@ -32,7 +35,7 @@ namespace Parser.UI.Parsers
         {
             if (InternetConnection.IsInternetConnected())
             {
-                fileNameSelect = new SelectingFileName(filePath);
+                fileNameSelect = new SelectingFileName(excelFilePath, txtFilePath);
                 fileNameSelect.ShowDialog();
 
                 if (fileNameSelect.IsAcceptStatus())
@@ -67,10 +70,12 @@ namespace Parser.UI.Parsers
                     parser = new FipsParser();
                     forExcel = parser.ParseFips(formData);
 
-                    bool isSuccess = excel.CreateExcelFile(forExcel, filePath, fileName);
+                    bool isSuccess = excel.CreateExcelFile(forExcel, excelFilePath, fileName);
 
                     if (isSuccess)
                     {
+                        txt.CreateTextFile(formData, txtFilePath, fileName);
+
                         this.BeginInvoke((MethodInvoker)delegate
                         {
                             // Код для выполнения в UI-потоке

@@ -60,6 +60,11 @@ namespace Parser.Models.Parsers
 
                 driver.FindElement(By.XPath("/html/body/div[1]/div/div[4]/div/div/header/div/div[1]/div[2]/form/div[2]/button")).Click();
 
+                Thread.Sleep(3000);
+                string newKey = "ResultAmount";
+                string newValue = driver.FindElement(By.XPath("/html/body/div[1]/div/div[6]/div[2]/div[2]")).Text.Replace("Нашлось документов: ", "");
+                formData.Add(newKey, newValue);
+
                 while (true)
                 {
                     Thread.Sleep(2000);

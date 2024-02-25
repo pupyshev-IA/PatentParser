@@ -10,7 +10,8 @@ namespace Parser.UI.Parsers
 {
     public partial class YandexPatents : Form
     {
-        private string filePath = @"../Результаты поиска/Яндекс.Патенты/";
+        private string excelFilePath = @"../Результаты поиска/Яндекс.Патенты/";
+        private string txtFilePath = @"../search_info/Яндекс.Патенты/";
         private string fileName = "";
 
         Dictionary<string, string> formData;
@@ -18,6 +19,7 @@ namespace Parser.UI.Parsers
         private SelectingFileName fileNameSelect;
         private YandexPatentsParser parser;
         private ExcelFiles excel;
+        private TextFiles txt;
         private FileExplorer fileExplorer;
 
 
@@ -30,6 +32,7 @@ namespace Parser.UI.Parsers
             chbPatent.Checked = true;
 
             excel = new ExcelFiles();
+            txt = new TextFiles();
             fileExplorer = FileExplorer.getInstance();
         }
 
@@ -37,35 +40,22 @@ namespace Parser.UI.Parsers
         {
             if (InternetConnection.IsInternetConnected())
             {
-                fileNameSelect = new SelectingFileName(filePath);
+                fileNameSelect = new SelectingFileName(excelFilePath, txtFilePath);
                 fileNameSelect.ShowDialog();
 
                 if (fileNameSelect.IsAcceptStatus())
                 {
-                    formData = new Dictionary<string, string>
-                    {
-                        { "Keys", tbKeys.Text },
-                        { "Document", tbDocument.Text },
-                        { "Application", tbApplication.Text },
-                        { "WhichDate", cbDate.SelectedItem.ToString() },
-                        { "DateStart", mtbStart.Text },
-                        { "DateEnd", mtbEnd.Text },
-                        { "Name", tbName.Text },
-                        { "Author", tbAuthor.Text },
-                        { "Patentee", tbPatentee.Text },
-                        { "isApplication", chbApplication.CheckState.ToString() },
-                        { "isPatent", chbPatent.CheckState.ToString() },
-                        { "DocAmount", tbDocAmount.Text }
-                    };
                     fileName = fileNameSelect.GetFileName();
 
                     parser = new YandexPatentsParser();
                     forExcel = parser.ParseYandexPatents(formData);
 
-                    bool isSuccess = excel.CreateExcelFile(forExcel, filePath, fileName);
+                    bool isSuccess = excel.CreateExcelFile(forExcel, excelFilePath, fileName);
 
                     if (isSuccess)
                     {
+                        txt.CreateTextFile(formData, txtFilePath, fileName);
+
                         this.BeginInvoke((MethodInvoker)delegate
                         {
                             // Код для выполнения в UI-потоке
@@ -88,6 +78,21 @@ namespace Parser.UI.Parsers
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            formData = new Dictionary<string, string>
+            {
+                { "Keys", tbKeys.Text },
+                { "Document", tbDocument.Text },
+                { "Application", tbApplication.Text },
+                { "WhichDate", cbDate.SelectedItem.ToString() },
+                { "DateStart", mtbStart.Text },
+                { "DateEnd", mtbEnd.Text },
+                { "Name", tbName.Text },
+                { "Author", tbAuthor.Text },
+                { "Patentee", tbPatentee.Text },
+                { "isApplication", chbApplication.CheckState.ToString() },
+                { "isPatent", chbPatent.CheckState.ToString() },
+                { "DocAmount", tbDocAmount.Text }
+            };
             ThreadPool.QueueUserWorkItem(ParseData);
         }
 

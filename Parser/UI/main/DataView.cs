@@ -72,7 +72,7 @@ namespace Parser.UI
         {
             if (dataSet != null)
             {
-                Dashboard dashboard = new Dashboard(dataSet);
+                Dashboard dashboard = new Dashboard(dataSet, filePath);
                 dashboard.Show();
             }
             else

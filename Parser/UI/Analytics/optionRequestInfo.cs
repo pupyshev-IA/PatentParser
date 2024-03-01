@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Parser.Models.Analytics;
 
 namespace Parser.UI.Analytics
 {
@@ -16,12 +14,105 @@ namespace Parser.UI.Analytics
         private string directoryPath = @"../search_info/";
         private string filePath;
         private string fileName;
+        private DataSet dataSet;
 
-        public optionRequestInfo(string filePath)
+        LiveChart charts;
+
+        public optionRequestInfo(string filePath, DataSet dataSet)
         {
             InitializeComponent();
-
             this.filePath = filePath;
+            this.dataSet = dataSet;
+
+            charts = new LiveChart();
+        }
+
+        private void SetPieChart(string fullPath)
+        {
+            if (File.Exists(fullPath))
+            {
+                string[] lines = File.ReadAllLines(fullPath);
+                var fullAmount = lines[lines.Length - 1].Split(':')[1].Replace(",", "");
+                var parsedAmount = lines[lines.Length - 2].Split(':')[1];
+
+                charts.CreatePieChart(solidGauge_docAmount, int.Parse(fullAmount), int.Parse(parsedAmount));
+            }
+        }
+
+        private void SetColumnChart(string funcType)
+        {
+            switch (funcType)
+            {
+                case "Espacenet":
+                    List<int> lblEspacenet = new List<int>();
+                    lblEspacenet = dataSet.Tables[0].AsEnumerable()
+                        .Select(row => row.Field<DateTime>("Дата приоритета").Year)
+                        .Distinct()
+                        .OrderBy(year => year)
+                        .ToList();
+
+                    List<int> valueEspacenet = new List<int>();
+                    foreach (var el in lblEspacenet)
+                    {
+                        var val = dataSet.Tables[0].AsEnumerable()
+                            .Select(row => row.Field<DateTime>("Дата приоритета").Year)
+                            .Count(x => x == el);
+
+                        valueEspacenet.Add(val);
+                    }
+
+                    charts.CreateColumnChart(cartesianChart_dates, lblEspacenet.ConvertAll(i => i.ToString()), valueEspacenet);
+                    break;
+
+                case "ФИПС":
+                    List<int> lblFips = new List<int>();
+                    lblFips = dataSet.Tables[0].AsEnumerable()
+                        .Select(row => row.Field<string>("Дата публикации"))
+                        .Select(date => DateTime.Parse(date).Year)
+                        .Distinct()
+                        .OrderBy(year => year)
+                        .ToList();
+
+                    List<int> valueFips = new List<int>();
+                    foreach (var el in lblFips)
+                    {
+                        var val = dataSet.Tables[0].AsEnumerable()
+                            .Select(row => row.Field<string>("Дата публикации"))
+                            .Select(date => DateTime.Parse(date).Year)
+                            .Count(x => x == el);
+
+                        valueFips.Add(val);
+                    }
+
+                    charts.CreateColumnChart(cartesianChart_dates, lblFips.ConvertAll(i => i.ToString()), valueFips);
+                    break;
+
+                case "Яндекс.Патенты":
+                    List<int> lblYandexPatents = new List<int>();
+                    lblYandexPatents = dataSet.Tables[0].AsEnumerable()
+                        .Select(row => row.Field<string>("Публикация"))
+                        .Select(date => DateTime.Parse(date).Year)
+                        .Distinct()
+                        .OrderBy(year => year)
+                        .ToList();
+
+                    List<int> valueYandexPatents = new List<int>();
+                    foreach (var el in lblYandexPatents)
+                    {
+                        var val = dataSet.Tables[0].AsEnumerable()
+                            .Select(row => row.Field<string>("Публикация"))
+                            .Select(date => DateTime.Parse(date).Year)
+                            .Count(x => x == el);
+
+                        valueYandexPatents.Add(val);
+                    }
+
+                    charts.CreateColumnChart(cartesianChart_dates, lblYandexPatents.ConvertAll(i => i.ToString()), valueYandexPatents);
+                    break;
+
+                case "WIPO":
+                    break;
+            }
         }
 
         private void optionRequestInfo_Load(object sender, EventArgs e)
@@ -34,6 +125,9 @@ namespace Parser.UI.Analytics
 
             GetSearchInfo(folder, fullPath);
             GetSearchParams(tlpRequestData, fullPath);
+
+            SetPieChart(fullPath);
+            SetColumnChart(folder);
         }
 
         private void GetSearchInfo(string folder, string fullPath)
@@ -44,11 +138,11 @@ namespace Parser.UI.Analytics
             {
                 var lastLine = File.ReadLines(fullPath).Last();
 
-                lblAmountValue.Text = lastLine.Split(':')[1];
+                lblFullAmountValue.Text = lastLine.Split(':')[1];
             }
             else
             {
-                lblAmountValue.Text = "Not found";
+                lblFullAmountValue.Text = "Not found";
             }
         }
 
@@ -57,7 +151,7 @@ namespace Parser.UI.Analytics
             if (File.Exists(fullPath))
             {
                 string[] lines = File.ReadAllLines(fullPath);
-                lines = lines.Take(lines.Count() - 1).ToArray();
+                lines = lines.Take(lines.Count() - 2).ToArray();
 
                 foreach (var line in lines)
                 {

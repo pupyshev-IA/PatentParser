@@ -54,7 +54,7 @@ namespace Parser.UI.Analytics
 
             lblName.Text = btnInfo.Text;
 
-            requestInfo = new optionRequestInfo(filePath) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            requestInfo = new optionRequestInfo(filePath, dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             pnlFormLoader.Controls.Add(requestInfo);
             requestInfo.Show();
 

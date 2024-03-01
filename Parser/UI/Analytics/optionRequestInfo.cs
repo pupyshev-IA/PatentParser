@@ -5,6 +5,9 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
+using LiveCharts;
 using Parser.Models.Analytics;
 
 namespace Parser.UI.Analytics

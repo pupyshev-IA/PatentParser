@@ -28,7 +28,7 @@ namespace Parser.Models.Analytics
             cartesianChart_dates.AxisX.Add(new Axis
             {
                 Title = "Dates",
-                FontSize = 16,
+                FontSize = 14,
                 FontFamily = new FontFamily("Segoe UI"),
                 Foreground = Brushes.Black,
                 Labels = labels
@@ -37,7 +37,7 @@ namespace Parser.Models.Analytics
             cartesianChart_dates.AxisY.Add(new Axis
             {
                 Title = "Docs Amount",
-                FontSize = 16,
+                FontSize = 14,
                 FontFamily = new FontFamily("Segoe UI"),
                 Foreground = Brushes.Black,
                 //LabelFormatter = value => value.ToString("N")

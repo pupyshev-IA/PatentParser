@@ -9,25 +9,46 @@ using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using LiveCharts;
 using Parser.Models.Analytics;
+using Parser.Models.Analytics.Clustering;
+using Parser.UI.DialogForm;
 
 namespace Parser.UI.Analytics
 {
-    public partial class optionRequestInfo : Form
+    public partial class RequestInfo : Form
     {
         private string directoryPath = @"../search_info/";
         private string filePath;
-        private string fileName;
         private DataSet dataSet;
 
         LiveChart charts;
+        List<string> patentTitles;
+        Dictionary<List<double>, string> resultAxis;
+        Popup popup;
 
-        public optionRequestInfo(string filePath, DataSet dataSet)
+        public RequestInfo(string filePath, DataSet dataSet)
         {
             InitializeComponent();
+
             this.filePath = filePath;
             this.dataSet = dataSet;
 
             charts = new LiveChart();
+        }
+
+        private void optionRequestInfo_Load(object sender, EventArgs e)
+        {
+            string fileName = Path.GetFileName(filePath);
+            fileName = fileName.Replace("xlsx", "txt");
+
+            string folder = Directory.GetParent(filePath).Name;
+            string fullPath = directoryPath + folder + "/" + fileName;
+
+            GetSearchInfo(folder, fullPath);
+            GetSearchParams(tlpRequestData, fullPath);
+
+            SetPieChart(fullPath);
+            SetColumnChart(folder);
+            SetScatterPlot();
         }
 
         private void SetPieChart(string fullPath)
@@ -118,19 +139,51 @@ namespace Parser.UI.Analytics
             }
         }
 
-        private void optionRequestInfo_Load(object sender, EventArgs e)
+        private void SetScatterPlot()
         {
-            fileName = Path.GetFileName(filePath);
-            fileName = fileName.Replace("xlsx", "txt");
+            patentTitles = new List<string>();
+            patentTitles = dataSet.Tables[0].AsEnumerable()
+                .Select(row => row.Field<String>("Название"))
+                .ToList();
 
-            string folder = Directory.GetParent(filePath).Name;
-            string fullPath = directoryPath + folder + "/" + fileName;
+            DataClusterizer clusterizer = new DataClusterizer(patentTitles);
 
-            GetSearchInfo(folder, fullPath);
-            GetSearchParams(tlpRequestData, fullPath);
+            var clustersId = clusterizer.ClusterResults
+                .Select(id => id.ClusterId)
+                .ToList();
 
-            SetPieChart(fullPath);
-            SetColumnChart(folder);
+            var scores = clusterizer.ClusterResults
+                .Select(score => score.Score)
+                .ToList();
+
+            var numberOfClusters = clusterizer.OptimalNumberOfClusters;
+
+            resultAxis = new Dictionary<List<double>, string>();
+            resultAxis = charts.CreateScatterPlot(cartesianChart_scatterPlot, patentTitles, clustersId, scores, numberOfClusters);
+        }
+
+        private void cartesianChart_scatterPlot_DataClick(object sender, ChartPoint chartPoint)
+        {
+            if (popup != null)
+                popup.Close();
+
+            double x = chartPoint.X;
+            double y = chartPoint.Y;
+
+            string label = "Not found";
+            foreach (var el in resultAxis)
+            {
+                if (el.Key.SequenceEqual(new List<double>() { x, y }))
+                {
+                    label = el.Value;
+                    break;
+                }
+            }
+
+            Point startPosition = Cursor.Position;
+            Point location = new Point(startPosition.X - 200, startPosition.Y + 40);
+            popup = new Popup(label, location);
+            popup.Show();
         }
 
         private void GetSearchInfo(string folder, string fullPath)
@@ -176,7 +229,7 @@ namespace Parser.UI.Analytics
             Label keyLabel = new Label()
             {
                 Text = labelText,
-                ForeColor = Color.White,
+                ForeColor = Color.Black,
                 Dock = DockStyle.Fill,
                 Font = new Font("Segoe UI", 12),
                 TextAlign = ContentAlignment.TopCenter
@@ -187,7 +240,7 @@ namespace Parser.UI.Analytics
                 Text = value,
                 ForeColor = Color.FromArgb(27, 117, 208),
                 Dock = DockStyle.Fill,
-                Font = new Font("Segoe UI", 12),
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
                 TextAlign = ContentAlignment.TopCenter
             };
 

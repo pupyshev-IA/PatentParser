@@ -292,6 +292,8 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Analytics\Clustering\DataClusterizer.cs" />
+    <Compile Include="Models\Analytics\Clustering\MLdata.cs" />
     <Compile Include="Models\Analytics\LiveChart.cs" />
     <Compile Include="Models\main\Directories.cs" />
     <Compile Include="Models\main\InternetConnection.cs" />
@@ -308,17 +310,23 @@
     <Compile Include="UI\Analytics\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Analytics\optionDataView.cs">
+    <Compile Include="UI\Analytics\DashboardOptions\DataView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Analytics\optionDataView.Designer.cs">
-      <DependentUpon>optionDataView.cs</DependentUpon>
+    <Compile Include="UI\Analytics\DashboardOptions\DataView.Designer.cs">
+      <DependentUpon>DataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Analytics\optionRequestInfo.cs">
+    <Compile Include="UI\Analytics\DashboardOptions\RequestInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Analytics\optionRequestInfo.Designer.cs">
-      <DependentUpon>optionRequestInfo.cs</DependentUpon>
+    <Compile Include="UI\Analytics\DashboardOptions\RequestInfo.Designer.cs">
+      <DependentUpon>RequestInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DialogForm\Popup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DialogForm\Popup.Designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\main\DataView.cs">
       <SubType>Form</SubType>
@@ -350,10 +358,10 @@
     <Compile Include="UI\Parsers\FIPS.Designer.cs">
       <DependentUpon>FIPS.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Parsers\GlobalSearch.cs">
+    <Compile Include="UI\Parsers\common\GlobalSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Parsers\GlobalSearch.Designer.cs">
+    <Compile Include="UI\Parsers\common\GlobalSearch.Designer.cs">
       <DependentUpon>GlobalSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\main\MainContainer.cs">
@@ -368,10 +376,10 @@
     <Compile Include="UI\main\ParserContainer.Designer.cs">
       <DependentUpon>ParserContainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Parsers\SimpleSearch.cs">
+    <Compile Include="UI\Parsers\common\SimpleSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Parsers\SimpleSearch.Designer.cs">
+    <Compile Include="UI\Parsers\common\SimpleSearch.Designer.cs">
       <DependentUpon>SimpleSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Parsers\WIPO.cs">
@@ -405,11 +413,14 @@
     <EmbeddedResource Include="UI\Analytics\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Analytics\optionDataView.resx">
-      <DependentUpon>optionDataView.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Analytics\DashboardOptions\DataView.resx">
+      <DependentUpon>DataView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Analytics\optionRequestInfo.resx">
-      <DependentUpon>optionRequestInfo.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Analytics\DashboardOptions\RequestInfo.resx">
+      <DependentUpon>RequestInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DialogForm\Popup.resx">
+      <DependentUpon>Popup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\main\DataView.resx">
       <DependentUpon>DataView.cs</DependentUpon>
@@ -500,7 +511,10 @@
   <ItemGroup>
     <None Include="res\search.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="res\rounded panel.txt" />
+    <None Include="res\search_black.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.WebDriver.4.15.0\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.15.0\build\Selenium.WebDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

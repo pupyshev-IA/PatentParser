@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Data;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Parser.UI.Analytics
 {
@@ -10,8 +12,8 @@ namespace Parser.UI.Analytics
         DataSet dataSet;
         string filePath;
 
-        private optionRequestInfo requestInfo;
-        private optionDataView dataView;
+        private RequestInfo requestInfo;
+        private DataView dataView;
 
         public Dashboard(DataSet ds, string filePath)
         {
@@ -20,20 +22,7 @@ namespace Parser.UI.Analytics
             dataSet = new DataSet();
             dataSet = ds;
             this.filePath = filePath;
-
-            //Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
         }
-
-        //[DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        //private static extern IntPtr CreateRoundRectRgn
-        //(
-        //    int nLeftRect,
-        //    int nTopRect,
-        //    int nRightRect,
-        //    int nBottomRect,
-        //    int nWidthEllipse,
-        //    int nHeightEllipse
-        //);
 
         private void OptionChanged()
         {
@@ -54,11 +43,11 @@ namespace Parser.UI.Analytics
 
             lblName.Text = btnInfo.Text;
 
-            requestInfo = new optionRequestInfo(filePath, dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            requestInfo = new RequestInfo(filePath, dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             pnlFormLoader.Controls.Add(requestInfo);
             requestInfo.Show();
 
-            dataView = new optionDataView(dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            dataView = new DataView(dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             pnlFormLoader.Controls.Add(dataView);
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace Parser.UI.Analytics
 {
-    partial class optionDataView
+    partial class DataView
     {
         /// <summary>
         /// Required designer variable.

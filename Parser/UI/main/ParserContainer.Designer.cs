@@ -135,7 +135,7 @@
             this.linkLabelGlobalSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelGlobalSearch.Location = new System.Drawing.Point(8, 532);
             this.linkLabelGlobalSearch.Name = "linkLabelGlobalSearch";
-            this.linkLabelGlobalSearch.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.linkLabelGlobalSearch.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
             this.linkLabelGlobalSearch.Size = new System.Drawing.Size(856, 30);
             this.linkLabelGlobalSearch.TabIndex = 3;
             this.linkLabelGlobalSearch.TabStop = true;
@@ -147,7 +147,7 @@
             this.linkLabelSimpleSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelSimpleSearch.Location = new System.Drawing.Point(8, 502);
             this.linkLabelSimpleSearch.Name = "linkLabelSimpleSearch";
-            this.linkLabelSimpleSearch.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.linkLabelSimpleSearch.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
             this.linkLabelSimpleSearch.Size = new System.Drawing.Size(856, 30);
             this.linkLabelSimpleSearch.TabIndex = 2;
             this.linkLabelSimpleSearch.TabStop = true;

@@ -1,6 +1,6 @@
 ﻿namespace Parser.UI.Analytics
 {
-    partial class DataView
+    partial class Data
     {
         /// <summary>
         /// Required designer variable.
@@ -94,8 +94,9 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(1200, 700);
             this.dataGridView.TabIndex = 0;
+            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             // 
-            // optionDataView
+            // Data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -106,7 +107,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "optionDataView";
+            this.Name = "Data";
             this.Text = "DataSet";
             this.panelBackground.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

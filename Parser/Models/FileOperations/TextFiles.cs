@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Collections.Generic;
 
-namespace Parser.Models.main
+namespace Parser.Models.FileOperations
 {
     public class TextFiles
     {

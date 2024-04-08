@@ -48,12 +48,12 @@
             this.cartesianChart_scatterPlot = new LiveCharts.WinForms.CartesianChart();
             this.pnlBottomLeftBack = new System.Windows.Forms.Panel();
             this.pnlRequestData = new System.Windows.Forms.Panel();
+            this.tlpRequestData = new System.Windows.Forms.TableLayoutPanel();
             this.tlpLabels = new System.Windows.Forms.TableLayoutPanel();
             this.lblValue = new System.Windows.Forms.Label();
             this.lblKey = new System.Windows.Forms.Label();
             this.lblRequestData = new System.Windows.Forms.Label();
             this.panelBackground = new System.Windows.Forms.Panel();
-            this.tlpRequestData = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelTop.SuspendLayout();
             this.pnlTopLeftBack.SuspendLayout();
             this.pnlFullDocAmount.SuspendLayout();
@@ -334,6 +334,20 @@
             this.pnlRequestData.Size = new System.Drawing.Size(260, 478);
             this.pnlRequestData.TabIndex = 1;
             // 
+            // tlpRequestData
+            // 
+            this.tlpRequestData.ColumnCount = 2;
+            this.tlpRequestData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpRequestData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpRequestData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpRequestData.Location = new System.Drawing.Point(20, 93);
+            this.tlpRequestData.Name = "tlpRequestData";
+            this.tlpRequestData.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.tlpRequestData.RowCount = 1;
+            this.tlpRequestData.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F));
+            this.tlpRequestData.Size = new System.Drawing.Size(220, 380);
+            this.tlpRequestData.TabIndex = 3;
+            // 
             // tlpLabels
             // 
             this.tlpLabels.ColumnCount = 2;
@@ -400,20 +414,6 @@
             this.panelBackground.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.panelBackground.Size = new System.Drawing.Size(1200, 800);
             this.panelBackground.TabIndex = 0;
-            // 
-            // tlpRequestData
-            // 
-            this.tlpRequestData.ColumnCount = 2;
-            this.tlpRequestData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpRequestData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpRequestData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpRequestData.Location = new System.Drawing.Point(20, 93);
-            this.tlpRequestData.Name = "tlpRequestData";
-            this.tlpRequestData.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.tlpRequestData.RowCount = 1;
-            this.tlpRequestData.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F));
-            this.tlpRequestData.Size = new System.Drawing.Size(220, 380);
-            this.tlpRequestData.TabIndex = 3;
             // 
             // RequestInfo
             // 

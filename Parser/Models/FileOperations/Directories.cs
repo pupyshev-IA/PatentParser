@@ -9,7 +9,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Parser.Models.main
+namespace Parser.Models.FileOperations
 {
     static class Directories
     {

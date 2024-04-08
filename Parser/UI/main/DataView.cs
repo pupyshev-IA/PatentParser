@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
-using System.Diagnostics;
 using System.Windows.Forms;
+using Parser.Models.main;
 using Parser.UI.Analytics;
 
 namespace Parser.UI
@@ -10,8 +10,9 @@ namespace Parser.UI
     public partial class DataView : Form
     {
         private string filePath;
+        private int page = 0;
+        DataSet dataSet, dividedDataSet;
         OleDbConnection connection;
-        DataSet dataSet;
         OleDbDataAdapter adapter;
 
         private static DataView instance = null;
@@ -28,14 +29,21 @@ namespace Parser.UI
             InitializeComponent();
         }
 
-        public void SetFilePath(string filePath)
+        public void ChangeDataView(string path)
         {
-            this.filePath = filePath;
+            filePath = path;
 
-            ShowDataTable();
+            ExtractDataTable(filePath);
+            dataGridView_excel.DataSource = DivideDataSet(dataSet).Tables[0];
+
+            lblPage.Visible = true;
+            btnLeft.Visible = true;
+            btnRight.Visible = true;
+            page = 0;
+            UpdatePaging();
         }
 
-        private void ShowDataTable()
+        private void ExtractDataTable(string filePath)
         {
             var query = "SELECT * FROM [Лист1$]";
             dataSet = new DataSet();
@@ -44,28 +52,87 @@ namespace Parser.UI
             connection.Open();
 
             adapter = new OleDbDataAdapter(query, connection);
-            adapter.TableMappings.Add("Table", "TestTable");
             adapter.Fill(dataSet);
 
             connection.Close();
-            dataGridView_excel.DataSource = dataSet.Tables[0];
+        }
+
+        private DataSet DivideDataSet(DataSet dataSet)
+        {
+            dividedDataSet = new DataSet();
+            DataTable dt = new DataTable();
+            int rowCount = 0;
+            int tableCount = 1;
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                if (rowCount == 0)
+                {
+                    dt = new DataTable();
+                    dt = dataSet.Tables[0].Clone();
+                    dt.TableName = $"Table {tableCount++}";
+                }
+
+                dt.ImportRow(row);
+
+                if (++rowCount == 35)
+                {
+                    dividedDataSet.Tables.Add(dt);
+                    dt = null;
+                    rowCount = 0;
+                }
+            }
+
+            if (dt != null && dt.Rows.Count > 0)
+                dividedDataSet.Tables.Add(dt);
+
+            return dividedDataSet;
+        }
+
+        private void ShowCurrentTable()
+        {
+            dataGridView_excel.DataSource = dividedDataSet.Tables[page];
+        }
+
+        private void UpdatePaging()
+        {
+            btnLeft.Enabled = page > 0;
+
+            btnRight.Enabled = page < dividedDataSet.Tables.Count - 1;
+
+            lblPage.Text = $"Страница: {page + 1} (из {dividedDataSet.Tables.Count})";
         }
 
         private void dataGridView_excel_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                var cellURL = dataGridView_excel.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            var cellURL = dataGridView_excel.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
 
-                if (cellURL.Contains("http"))
-                {
-                    Process.Start(cellURL);
-                }
-            }
-            catch
+            if (cellURL.Contains("http"))
             {
-                return;
+                var docNum = dataGridView_excel.Rows[e.RowIndex].Cells[e.ColumnIndex + 1].Value.ToString();
+
+                LinkNavigator navigator = new LinkNavigator();
+                navigator.OpenLink(cellURL, docNum);
             }
+        }
+
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            if (page == 0)
+                return;
+
+            page--;
+            ShowCurrentTable();
+            UpdatePaging();
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            if (page == dividedDataSet.Tables.Count)
+                return;
+
+            page++;
+            ShowCurrentTable();
+            UpdatePaging();
         }
 
         private void btnAnalytics_Click(object sender, EventArgs e)

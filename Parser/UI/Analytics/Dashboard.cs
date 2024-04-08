@@ -13,7 +13,7 @@ namespace Parser.UI.Analytics
         string filePath;
 
         private RequestInfo requestInfo;
-        private DataView dataView;
+        private Data dataView;
 
         public Dashboard(DataSet ds, string filePath)
         {
@@ -47,7 +47,7 @@ namespace Parser.UI.Analytics
             pnlFormLoader.Controls.Add(requestInfo);
             requestInfo.Show();
 
-            dataView = new DataView(dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            dataView = new Data(dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             pnlFormLoader.Controls.Add(dataView);
         }
 

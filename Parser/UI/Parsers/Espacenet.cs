@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Parser.Models.FileOperations;
 using Parser.Models.main;
 using Parser.Models.Parsers;
 
@@ -17,7 +18,7 @@ namespace Parser.UI.Parsers
         Dictionary<string, string> formData;
         Dictionary<string, List<string>> forExcel;
         private SelectingFileName fileNameSelect;
-        private EspacenetParser parser;
+        private SeleniumParsers parser;
         private ExcelFiles excel;
         private TextFiles txt;
         private FileExplorer fileExplorer;
@@ -57,7 +58,7 @@ namespace Parser.UI.Parsers
 
                     fileName = fileNameSelect.GetFileName();
 
-                    parser = new EspacenetParser();
+                    parser = new SeleniumParsers();
                     forExcel = parser.ParseEspacenet(formData);
 
                     bool isSuccess = excel.CreateExcelFile(forExcel, excelFilePath, fileName);

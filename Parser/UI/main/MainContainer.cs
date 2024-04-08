@@ -20,7 +20,7 @@ namespace Parser.UI
             LoadDataView();
         }
 
-
+        // Создать экемпляры классов, установить getter для каждого, заменить синглтон для каждого на соответствующую ссылку
         private void LoadFileExplorer()
         {
             FileExplorer fileExplorer = FileExplorer.getInstance();

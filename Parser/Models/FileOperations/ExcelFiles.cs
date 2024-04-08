@@ -6,7 +6,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using System.Linq;
 
-namespace Parser.Models.main
+namespace Parser.Models.FileOperations
 {
     public class ExcelFiles
     {

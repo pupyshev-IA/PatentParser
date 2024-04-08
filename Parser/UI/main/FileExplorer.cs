@@ -168,7 +168,7 @@ namespace Parser.UI
             var _path = Path.Combine(Directory.GetCurrentDirectory(), @"../Результаты поиска/" + e.Node.Parent.Text + @"/" + e.Node.Text + ".xlsx");
 
             if (File.Exists(_path))
-                dataView.SetFilePath(_path);
+                dataView.ChangeDataView(_path);
             else
             {
                 DialogResult _res = MessageBox.Show("Файл был удален или перемещен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);

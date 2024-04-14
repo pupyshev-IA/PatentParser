@@ -34,9 +34,9 @@
             this.pnlBar = new System.Windows.Forms.Panel();
             this.panelNavigation = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPatentInfo = new System.Windows.Forms.Button();
             this.btnTable = new System.Windows.Forms.Button();
-            this.btnInfo = new System.Windows.Forms.Button();
+            this.btnRequestInfo = new System.Windows.Forms.Button();
             this.tableLayoutPanelSpace = new System.Windows.Forms.TableLayoutPanel();
             this.panelInfo = new System.Windows.Forms.Panel();
             this.panelBackground.SuspendLayout();
@@ -100,9 +100,9 @@
             this.panelNavigation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.panelNavigation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelNavigation.Controls.Add(this.button3);
-            this.panelNavigation.Controls.Add(this.button2);
+            this.panelNavigation.Controls.Add(this.btnPatentInfo);
             this.panelNavigation.Controls.Add(this.btnTable);
-            this.panelNavigation.Controls.Add(this.btnInfo);
+            this.panelNavigation.Controls.Add(this.btnRequestInfo);
             this.panelNavigation.Controls.Add(this.tableLayoutPanelSpace);
             this.panelNavigation.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavigation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -119,30 +119,34 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = global::Parser.Properties.Resources.table;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.Location = new System.Drawing.Point(5, 525);
             this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
             this.button3.Size = new System.Drawing.Size(338, 70);
             this.button3.TabIndex = 12;
             this.button3.Text = "btn4";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnPatentInfo
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::Parser.Properties.Resources.table;
-            this.button2.Location = new System.Drawing.Point(5, 455);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(338, 70);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "btn3";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPatentInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPatentInfo.FlatAppearance.BorderSize = 0;
+            this.btnPatentInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPatentInfo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPatentInfo.ForeColor = System.Drawing.Color.White;
+            this.btnPatentInfo.Image = global::Parser.Properties.Resources.patent;
+            this.btnPatentInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPatentInfo.Location = new System.Drawing.Point(5, 455);
+            this.btnPatentInfo.Name = "btnPatentInfo";
+            this.btnPatentInfo.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
+            this.btnPatentInfo.Size = new System.Drawing.Size(338, 70);
+            this.btnPatentInfo.TabIndex = 11;
+            this.btnPatentInfo.Text = "Сведения по патенту";
+            this.btnPatentInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPatentInfo.UseVisualStyleBackColor = true;
+            this.btnPatentInfo.Click += new System.EventHandler(this.btnPatentInfo_Click);
             // 
             // btnTable
             // 
@@ -152,8 +156,10 @@
             this.btnTable.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable.ForeColor = System.Drawing.Color.White;
             this.btnTable.Image = global::Parser.Properties.Resources.table;
+            this.btnTable.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTable.Location = new System.Drawing.Point(5, 385);
             this.btnTable.Name = "btnTable";
+            this.btnTable.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
             this.btnTable.Size = new System.Drawing.Size(338, 70);
             this.btnTable.TabIndex = 10;
             this.btnTable.Text = "Данные";
@@ -161,22 +167,24 @@
             this.btnTable.UseVisualStyleBackColor = true;
             this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
             // 
-            // btnInfo
+            // btnRequestInfo
             // 
-            this.btnInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInfo.FlatAppearance.BorderSize = 0;
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInfo.ForeColor = System.Drawing.Color.White;
-            this.btnInfo.Image = global::Parser.Properties.Resources.info;
-            this.btnInfo.Location = new System.Drawing.Point(5, 315);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(338, 70);
-            this.btnInfo.TabIndex = 7;
-            this.btnInfo.Text = "Информация по запросу";
-            this.btnInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnInfo.UseVisualStyleBackColor = true;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            this.btnRequestInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRequestInfo.FlatAppearance.BorderSize = 0;
+            this.btnRequestInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRequestInfo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRequestInfo.ForeColor = System.Drawing.Color.White;
+            this.btnRequestInfo.Image = global::Parser.Properties.Resources.info;
+            this.btnRequestInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRequestInfo.Location = new System.Drawing.Point(5, 315);
+            this.btnRequestInfo.Name = "btnRequestInfo";
+            this.btnRequestInfo.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
+            this.btnRequestInfo.Size = new System.Drawing.Size(338, 70);
+            this.btnRequestInfo.TabIndex = 7;
+            this.btnRequestInfo.Text = "Информация по запросу";
+            this.btnRequestInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnRequestInfo.UseVisualStyleBackColor = true;
+            this.btnRequestInfo.Click += new System.EventHandler(this.btnRequestInfo_Click);
             // 
             // tableLayoutPanelSpace
             // 
@@ -227,12 +235,12 @@
         private System.Windows.Forms.Panel panelNavigation;
         private System.Windows.Forms.Panel panelInfo;
         private System.Windows.Forms.Panel pnlBar;
-        private System.Windows.Forms.Button btnInfo;
+        private System.Windows.Forms.Button btnRequestInfo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSpace;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Panel pnlFormLoader;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPatentInfo;
         private System.Windows.Forms.Button btnTable;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Parser.UI
+﻿namespace Parser.UI.DialogForm
 {
     partial class SelectingNewTab
     {
@@ -32,10 +32,10 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.panelBackground = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.button_Exit = new System.Windows.Forms.Button();
-            this.labelNoteFips = new System.Windows.Forms.Label();
-            this.labelName = new System.Windows.Forms.Label();
             this.labelUnderNote = new System.Windows.Forms.Label();
+            this.button_Exit = new System.Windows.Forms.Button();
+            this.labelName = new System.Windows.Forms.Label();
+            this.lblNote = new System.Windows.Forms.Label();
             this.panelBackground.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
@@ -48,16 +48,15 @@
             this.clbParsers.ForeColor = System.Drawing.Color.White;
             this.clbParsers.FormattingEnabled = true;
             this.clbParsers.Items.AddRange(new object[] {
-            "Глобальный поиск",
-            "Простой поиск",
             "ФИПС",
             "Яндекс.Патенты",
             "WIPO",
             "Espacenet"});
             this.clbParsers.Location = new System.Drawing.Point(11, 88);
             this.clbParsers.Name = "clbParsers";
-            this.clbParsers.Size = new System.Drawing.Size(190, 233);
+            this.clbParsers.Size = new System.Drawing.Size(180, 233);
             this.clbParsers.TabIndex = 0;
+            this.clbParsers.SelectedIndexChanged += new System.EventHandler(this.clbParsers_SelectedIndexChanged);
             // 
             // btnCreate
             // 
@@ -91,7 +90,7 @@
             this.panelMain.Controls.Add(this.labelUnderNote);
             this.panelMain.Controls.Add(this.button_Exit);
             this.panelMain.Controls.Add(this.labelName);
-            this.panelMain.Controls.Add(this.labelNoteFips);
+            this.panelMain.Controls.Add(this.lblNote);
             this.panelMain.Controls.Add(this.btnCreate);
             this.panelMain.Controls.Add(this.clbParsers);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -101,6 +100,18 @@
             this.panelMain.Size = new System.Drawing.Size(618, 378);
             this.panelMain.TabIndex = 0;
             this.panelMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMain_MouseDown);
+            // 
+            // labelUnderNote
+            // 
+            this.labelUnderNote.AutoSize = true;
+            this.labelUnderNote.BackColor = System.Drawing.Color.Transparent;
+            this.labelUnderNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUnderNote.ForeColor = System.Drawing.Color.White;
+            this.labelUnderNote.Location = new System.Drawing.Point(11, 327);
+            this.labelUnderNote.Name = "labelUnderNote";
+            this.labelUnderNote.Size = new System.Drawing.Size(480, 15);
+            this.labelUnderNote.TabIndex = 10;
+            this.labelUnderNote.Text = "Выберите одну или несколько вкладок, по которым будет осуществляться поиск.";
             // 
             // button_Exit
             // 
@@ -119,16 +130,6 @@
             this.button_Exit.UseVisualStyleBackColor = false;
             this.button_Exit.Click += new System.EventHandler(this.button_Exit_Click);
             // 
-            // labelNoteFips
-            // 
-            this.labelNoteFips.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelNoteFips.ForeColor = System.Drawing.Color.White;
-            this.labelNoteFips.Location = new System.Drawing.Point(207, 88);
-            this.labelNoteFips.Name = "labelNoteFips";
-            this.labelNoteFips.Size = new System.Drawing.Size(401, 233);
-            this.labelNoteFips.TabIndex = 8;
-            this.labelNoteFips.Text = "label1";
-            // 
             // labelName
             // 
             this.labelName.AutoSize = true;
@@ -142,17 +143,16 @@
             this.labelName.Text = "Выбор новой вкладки";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelUnderNote
+            // lblNote
             // 
-            this.labelUnderNote.AutoSize = true;
-            this.labelUnderNote.BackColor = System.Drawing.Color.Transparent;
-            this.labelUnderNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUnderNote.ForeColor = System.Drawing.Color.White;
-            this.labelUnderNote.Location = new System.Drawing.Point(11, 327);
-            this.labelUnderNote.Name = "labelUnderNote";
-            this.labelUnderNote.Size = new System.Drawing.Size(480, 15);
-            this.labelUnderNote.TabIndex = 10;
-            this.labelUnderNote.Text = "Выберите одну или несколько вкладок, по которым будет осуществляться поиск.";
+            this.lblNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblNote.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblNote.ForeColor = System.Drawing.Color.White;
+            this.lblNote.Location = new System.Drawing.Point(197, 88);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(411, 233);
+            this.lblNote.TabIndex = 8;
+            this.lblNote.Text = "label1";
             // 
             // SelectingNewTab
             // 
@@ -178,7 +178,7 @@
         private System.Windows.Forms.Panel panelBackground;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button button_Exit;
-        private System.Windows.Forms.Label labelNoteFips;
+        private System.Windows.Forms.Label lblNote;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelUnderNote;
     }

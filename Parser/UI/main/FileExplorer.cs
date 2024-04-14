@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace Parser.UI
+namespace Parser.UI.main
 {
     public partial class FileExplorer : Form
     {

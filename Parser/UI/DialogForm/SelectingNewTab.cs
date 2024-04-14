@@ -1,9 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using Parser.UI.main;
 
-namespace Parser.UI
+namespace Parser.UI.DialogForm
 {
     public partial class SelectingNewTab : Form
     {
@@ -12,6 +16,8 @@ namespace Parser.UI
         public SelectingNewTab()
         {
             InitializeComponent();
+
+            clbParsers.SelectedIndex = 0;
         }
 
         /*_________________________________________________________________________________________*/
@@ -35,6 +41,38 @@ namespace Parser.UI
             }
         }
         /*_________________________________________________________________________________________*/
+
+        private void clbParsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedParser = clbParsers.SelectedItem.ToString();
+            var info = GetPatentParsersInfo(selectedParser);
+
+            if (info != null)
+                lblNote.Text = info;
+        }
+
+        private string GetPatentParsersInfo(string parser)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string resourceName = "Parser.res.parser_info.txt";
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                if (stream == null)
+                    return "Not found";
+
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string text = reader.ReadToEnd();
+
+                    string pattern = $@"{parser}: /([^/]+?)/";
+                    Match match = Regex.Match(text, pattern);
+                    string info = match.Groups[0].Value.Replace($"{parser}: /", "").Replace("/", "");
+
+                    return info;
+                }
+            }
+        }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {

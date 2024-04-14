@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Parser.Models.main;
 using Parser.UI.Analytics;
 
-namespace Parser.UI
+namespace Parser.UI.main
 {
     public partial class DataView : Form
     {

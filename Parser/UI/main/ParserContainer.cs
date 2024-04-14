@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Parser.UI.DialogForm;
 using Parser.UI.Parsers;
 
-namespace Parser.UI
+namespace Parser.UI.main
 {
     public partial class ParserContainer : Form
     {

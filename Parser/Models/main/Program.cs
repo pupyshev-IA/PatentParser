@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Parser.Models.FileOperations;
-using Parser.UI;
+using Parser.UI.main;
 
 namespace Parser.Models.main
 {

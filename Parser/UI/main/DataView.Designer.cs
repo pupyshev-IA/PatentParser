@@ -1,4 +1,4 @@
-﻿namespace Parser.UI
+﻿namespace Parser.UI.main
 {
     partial class DataView
     {

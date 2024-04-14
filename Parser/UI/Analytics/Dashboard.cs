@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Data;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Linq;
+using Parser.UI.Analytics.DashboardOptions;
 
 namespace Parser.UI.Analytics
 {
@@ -13,7 +12,8 @@ namespace Parser.UI.Analytics
         string filePath;
 
         private RequestInfo requestInfo;
-        private Data dataView;
+        private Data data;
+        private PatentInfo patentInfo;
 
         public Dashboard(DataSet ds, string filePath)
         {
@@ -31,44 +31,63 @@ namespace Parser.UI.Analytics
                     el.BackColor = Color.FromArgb(40, 40, 40);
 
             requestInfo.Hide();
-            dataView.Hide();
+            data.Hide();
+            patentInfo.Hide();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            pnlBar.Height = btnInfo.Height;
-            pnlBar.Top = btnInfo.Top + 6;
-            pnlBar.Left = btnInfo.Left;
-            btnInfo.BackColor = Color.FromArgb(70, 70, 70);
+            pnlBar.Height = btnRequestInfo.Height;
+            pnlBar.Top = btnRequestInfo.Top + 6;
+            pnlBar.Left = btnRequestInfo.Left;
+            btnRequestInfo.BackColor = Color.FromArgb(70, 70, 70);
 
-            lblName.Text = btnInfo.Text;
+            lblName.Text = btnRequestInfo.Text;
 
             requestInfo = new RequestInfo(filePath, dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             pnlFormLoader.Controls.Add(requestInfo);
             requestInfo.Show();
 
-            dataView = new Data(dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            pnlFormLoader.Controls.Add(dataView);
+            data = new Data(this, dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            pnlFormLoader.Controls.Add(data);
+
+            patentInfo = new PatentInfo() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            pnlFormLoader.Controls.Add(patentInfo);
         }
 
-        private void btnInfo_Click(object sender, EventArgs e)
+        private void btnRequestInfo_Click(object sender, EventArgs e)
         {
             OptionChanged();
-            lblName.Text = btnInfo.Text;
+            lblName.Text = btnRequestInfo.Text;
             requestInfo.Show();
 
-            pnlBar.Top = btnInfo.Top + 6;
-            btnInfo.BackColor = Color.FromArgb(70, 70, 70);
+            pnlBar.Top = btnRequestInfo.Top + 6;
+            btnRequestInfo.BackColor = Color.FromArgb(70, 70, 70);
         }
 
         private void btnTable_Click(object sender, EventArgs e)
         {
             OptionChanged();
             lblName.Text = btnTable.Text;
-            dataView.Show();
+            data.Show();
 
             pnlBar.Top = btnTable.Top + 6;
             btnTable.BackColor = Color.FromArgb(70, 70, 70);
+        }
+
+        private void btnPatentInfo_Click(object sender, EventArgs e)
+        {
+            OptionChanged();
+            lblName.Text = btnPatentInfo.Text;
+            patentInfo.Show();
+
+            pnlBar.Top = btnPatentInfo.Top + 6;
+            btnPatentInfo.BackColor = Color.FromArgb(70, 70, 70);
+        }
+
+        public void ClickPatentInfoButton()
+        {
+            btnPatentInfo.PerformClick();
         }
     }
 }

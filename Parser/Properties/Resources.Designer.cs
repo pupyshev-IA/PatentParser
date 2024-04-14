@@ -73,6 +73,16 @@ namespace Parser.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clear_filter {
+            get {
+                object obj = ResourceManager.GetObject("clear-filter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap double_left {
             get {
                 object obj = ResourceManager.GetObject("double-left", resourceCulture);
@@ -93,9 +103,42 @@ namespace Parser.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap filter {
+            get {
+                object obj = ResourceManager.GetObject("filter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap info {
             get {
                 object obj = ResourceManager.GetObject("info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ФИПС: /Федеральный институт промышленной собственности (ФИПС).
+        ///
+        ///В Поисковой системе возможен поиск по изобретениям на русском и английском языках, полезным моделям, товарным знакам, общеизвестным товарным знакам, наименованиям мест происхождения товаров,  промышленным образцам, программам для ЭВМ, базам данных, топологиям интегральных микросхем и классификаторам. 
+        ///
+        ///Открытые реестры представляют собой структурированный список документов по номеру регистрации или заявки по определенному объекту интеллекту [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string parser_info {
+            get {
+                return ResourceManager.GetString("parser_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap patent {
+            get {
+                object obj = ResourceManager.GetObject("patent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +169,16 @@ namespace Parser.Properties {
         internal static System.Drawing.Bitmap search_black {
             get {
                 object obj = ResourceManager.GetObject("search_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings {
+            get {
+                object obj = ResourceManager.GetObject("settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

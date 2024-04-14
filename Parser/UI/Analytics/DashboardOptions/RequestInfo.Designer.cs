@@ -1,4 +1,4 @@
-﻿namespace Parser.UI.Analytics
+﻿namespace Parser.UI.Analytics.DashboardOptions
 {
     partial class RequestInfo
     {

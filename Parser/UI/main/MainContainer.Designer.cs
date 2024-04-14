@@ -1,4 +1,4 @@
-﻿namespace Parser.UI
+﻿namespace Parser.UI.main
 {
     partial class MainContainer
     {
@@ -35,14 +35,15 @@
             this.поискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.глобальныйПоискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.простойПоискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.фИПСToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.яндексПатентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wIPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.espacenetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer_out = new System.Windows.Forms.SplitContainer();
             this.splitContainer_in = new System.Windows.Forms.SplitContainer();
             this.kryptonPalette = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.поискПоСайтуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.фИПСToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.яндексПатентыToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.wIPOToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.espacenetToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_Main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_out)).BeginInit();
             this.splitContainer_out.Panel2.SuspendLayout();
@@ -79,12 +80,9 @@
             this.поискToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.глобальныйПоискToolStripMenuItem,
             this.простойПоискToolStripMenuItem,
-            this.фИПСToolStripMenuItem,
-            this.яндексПатентыToolStripMenuItem,
-            this.wIPOToolStripMenuItem,
-            this.espacenetToolStripMenuItem});
+            this.поискПоСайтуToolStripMenuItem});
             this.поискToolStripMenuItem.Name = "поискToolStripMenuItem";
-            this.поискToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.поискToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.поискToolStripMenuItem.Text = "Поиск";
             // 
             // глобальныйПоискToolStripMenuItem
@@ -98,30 +96,6 @@
             this.простойПоискToolStripMenuItem.Name = "простойПоискToolStripMenuItem";
             this.простойПоискToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.простойПоискToolStripMenuItem.Text = "Простой поиск";
-            // 
-            // фИПСToolStripMenuItem
-            // 
-            this.фИПСToolStripMenuItem.Name = "фИПСToolStripMenuItem";
-            this.фИПСToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.фИПСToolStripMenuItem.Text = "ФИПС";
-            // 
-            // яндексПатентыToolStripMenuItem
-            // 
-            this.яндексПатентыToolStripMenuItem.Name = "яндексПатентыToolStripMenuItem";
-            this.яндексПатентыToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.яндексПатентыToolStripMenuItem.Text = "Яндекс.Патенты";
-            // 
-            // wIPOToolStripMenuItem
-            // 
-            this.wIPOToolStripMenuItem.Name = "wIPOToolStripMenuItem";
-            this.wIPOToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.wIPOToolStripMenuItem.Text = "WIPO";
-            // 
-            // espacenetToolStripMenuItem
-            // 
-            this.espacenetToolStripMenuItem.Name = "espacenetToolStripMenuItem";
-            this.espacenetToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.espacenetToolStripMenuItem.Text = "Espacenet";
             // 
             // settingsToolStripMenuItem
             // 
@@ -207,6 +181,41 @@
             this.kryptonPalette.ToolMenuStatus.MenuStrip.MenuStripGradientBegin = System.Drawing.Color.White;
             this.kryptonPalette.ToolMenuStatus.MenuStrip.MenuStripGradientEnd = System.Drawing.Color.White;
             // 
+            // поискПоСайтуToolStripMenuItem
+            // 
+            this.поискПоСайтуToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.фИПСToolStripMenuItem1,
+            this.яндексПатентыToolStripMenuItem1,
+            this.wIPOToolStripMenuItem1,
+            this.espacenetToolStripMenuItem1});
+            this.поискПоСайтуToolStripMenuItem.Name = "поискПоСайтуToolStripMenuItem";
+            this.поискПоСайтуToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.поискПоСайтуToolStripMenuItem.Text = "Поиск по сайту";
+            // 
+            // фИПСToolStripMenuItem1
+            // 
+            this.фИПСToolStripMenuItem1.Name = "фИПСToolStripMenuItem1";
+            this.фИПСToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.фИПСToolStripMenuItem1.Text = "ФИПС";
+            // 
+            // яндексПатентыToolStripMenuItem1
+            // 
+            this.яндексПатентыToolStripMenuItem1.Name = "яндексПатентыToolStripMenuItem1";
+            this.яндексПатентыToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.яндексПатентыToolStripMenuItem1.Text = "Яндекс.Патенты";
+            // 
+            // wIPOToolStripMenuItem1
+            // 
+            this.wIPOToolStripMenuItem1.Name = "wIPOToolStripMenuItem1";
+            this.wIPOToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.wIPOToolStripMenuItem1.Text = "WIPO";
+            // 
+            // espacenetToolStripMenuItem1
+            // 
+            this.espacenetToolStripMenuItem1.Name = "espacenetToolStripMenuItem1";
+            this.espacenetToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.espacenetToolStripMenuItem1.Text = "Espacenet";
+            // 
             // MainContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,9 +253,10 @@
         private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem глобальныйПоискToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem простойПоискToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem фИПСToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem яндексПатентыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem wIPOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem espacenetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem поискПоСайтуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem фИПСToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem яндексПатентыToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem wIPOToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem espacenetToolStripMenuItem1;
     }
 }

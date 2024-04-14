@@ -5,14 +5,12 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using LiveCharts.Defaults;
-using LiveCharts.Wpf;
 using LiveCharts;
 using Parser.Models.Analytics;
 using Parser.Models.Analytics.Clustering;
 using Parser.UI.DialogForm;
 
-namespace Parser.UI.Analytics
+namespace Parser.UI.Analytics.DashboardOptions
 {
     public partial class RequestInfo : Form
     {

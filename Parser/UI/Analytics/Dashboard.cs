@@ -19,7 +19,6 @@ namespace Parser.UI.Analytics
         {
             InitializeComponent();
 
-            dataSet = new DataSet();
             dataSet = ds;
             this.filePath = filePath;
         }
@@ -51,7 +50,7 @@ namespace Parser.UI.Analytics
             data = new Data(this, dataSet) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             pnlFormLoader.Controls.Add(data);
 
-            patentInfo = new PatentInfo() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            patentInfo = new PatentInfo(requestInfo) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             pnlFormLoader.Controls.Add(patentInfo);
         }
 
@@ -79,6 +78,11 @@ namespace Parser.UI.Analytics
         {
             OptionChanged();
             lblName.Text = btnPatentInfo.Text;
+
+            patentInfo.RowIndex = data.SelectedIndex;
+            patentInfo.Link = data.SelectedLink;
+            patentInfo.DocNum = data.SelectedDocNum;
+
             patentInfo.Show();
 
             pnlBar.Top = btnPatentInfo.Top + 6;

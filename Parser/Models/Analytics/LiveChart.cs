@@ -1,33 +1,83 @@
 ﻿using System;
-using System.Text;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using LiveCharts;
 using LiveCharts.Wpf;
 using LiveCharts.WinForms;
 using System.Windows.Media;
-using LiveCharts.Definitions.Charts;
 using LiveCharts.Defaults;
-using System.ComponentModel;
 
 namespace Parser.Models.Analytics
 {
     public class LiveChart
     {
-        public void CreatePieChart(SolidGauge solidGauge_docAmount, int fullAmount, int parsedAmount)
+        public void CreatePieChart(LiveCharts.WinForms.PieChart pieChart, float[] scores)
         {
-            solidGauge_docAmount.From = 0;
-            solidGauge_docAmount.To = fullAmount;
-            solidGauge_docAmount.Value = parsedAmount;
-            solidGauge_docAmount.FromColor = Color.FromArgb(0, 156, 69, 207);
+            Func<ChartPoint, string> labelPoint = chartPoint =>
+                string.Format("({0:P})", /*chartPoint.Y,*/ chartPoint.Participation);
+
+            SeriesCollection seriesCollection = new SeriesCollection();
+
+            for (int i = 0; i < scores.Length; i++)
+            {
+                PieSeries pieSeries = new PieSeries()
+                {
+                    Title = $"Cluster {i + 1}",
+                    Values = new ChartValues<float> { scores[i] },
+                    DataLabels = true,
+                    LabelPoint = labelPoint,
+                };
+
+                seriesCollection.Add(pieSeries);
+            }
+
+            pieChart.Series = seriesCollection;
         }
 
-        public void CreateColumnChart(LiveCharts.WinForms.CartesianChart cartesianChart_dates, 
+        public void CreateColumnChartForFrequency(LiveCharts.WinForms.CartesianChart cartesianChart,
             List<string> labels, List<int> values)
         {
-            cartesianChart_dates.Series = new SeriesCollection
+            cartesianChart.AxisX.Clear();
+            cartesianChart.AxisY.Clear();
+
+            cartesianChart.Series = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Values = new ChartValues<int>(values),
+                    Fill = Brushes.Blue
+                }
+            };
+
+            cartesianChart.AxisX.Add(new Axis
+            {
+                Title = "Words",
+                FontSize = 12,
+                FontFamily = new FontFamily("Segoe UI"),
+                Foreground = Brushes.Black,
+                Labels = labels
+            });
+
+            cartesianChart.AxisY.Add(new Axis
+            {
+                Title = "Word Frequency",
+                FontSize = 12,
+                FontFamily = new FontFamily("Segoe UI"),
+                Foreground = Brushes.Black,
+            });
+        }
+
+        public void CreateSolidGauge(SolidGauge solidGauge, int maxValue, int currentValue)
+        {
+            solidGauge.From = 0;
+            solidGauge.To = maxValue;
+            solidGauge.Value = currentValue;
+            solidGauge.FromColor = Color.FromArgb(0, 156, 69, 207);
+        }
+
+        public void CreateColumnChartForDates(LiveCharts.WinForms.CartesianChart cartesianChart, 
+            List<string> labels, List<int> values)
+        {
+            cartesianChart.Series = new SeriesCollection
             {
                 new ColumnSeries
                 {
@@ -36,7 +86,7 @@ namespace Parser.Models.Analytics
                 }
             };
 
-            cartesianChart_dates.AxisX.Add(new Axis
+            cartesianChart.AxisX.Add(new Axis
             {
                 Title = "Dates",
                 FontSize = 14,
@@ -45,7 +95,7 @@ namespace Parser.Models.Analytics
                 Labels = labels
             });
 
-            cartesianChart_dates.AxisY.Add(new Axis
+            cartesianChart.AxisY.Add(new Axis
             {
                 Title = "Docs Amount",
                 FontSize = 14,

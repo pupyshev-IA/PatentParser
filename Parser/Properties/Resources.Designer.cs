@@ -121,6 +121,16 @@ namespace Parser.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap no_pictures {
+            get {
+                object obj = ResourceManager.GetObject("no-pictures", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на ФИПС: /Федеральный институт промышленной собственности (ФИПС).
         ///
         ///В Поисковой системе возможен поиск по изобретениям на русском и английском языках, полезным моделям, товарным знакам, общеизвестным товарным знакам, наименованиям мест происхождения товаров,  промышленным образцам, программам для ЭВМ, базам данных, топологиям интегральных микросхем и классификаторам. 
@@ -189,6 +199,16 @@ namespace Parser.Properties {
         internal static System.Drawing.Bitmap table {
             get {
                 object obj = ResourceManager.GetObject("table", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap translate {
+            get {
+                object obj = ResourceManager.GetObject("translate", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace Parser.Models.Parsers
 {
-    public class SeleniumParsers
+    public class PatentDatabaseParser
     {
         public Dictionary<string, List<string>> ParseEspacenet(Dictionary<string, string> formData)
         {

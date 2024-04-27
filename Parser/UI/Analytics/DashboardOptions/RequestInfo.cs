@@ -17,6 +17,8 @@ namespace Parser.UI.Analytics.DashboardOptions
         private string directoryPath = @"../search_info/";
         private string filePath;
         private DataSet dataSet;
+        private List<float[]> scores;
+        public List<float[]> Scores { get => scores; }
 
         LiveChart charts;
         List<string> patentTitles;
@@ -44,12 +46,12 @@ namespace Parser.UI.Analytics.DashboardOptions
             GetSearchInfo(folder, fullPath);
             GetSearchParams(tlpRequestData, fullPath);
 
-            SetPieChart(fullPath);
+            SetSolidGauge(fullPath);
             SetColumnChart(folder);
             SetScatterPlot();
         }
 
-        private void SetPieChart(string fullPath)
+        private void SetSolidGauge(string fullPath)
         {
             if (File.Exists(fullPath))
             {
@@ -57,7 +59,7 @@ namespace Parser.UI.Analytics.DashboardOptions
                 var fullAmount = lines[lines.Length - 1].Split(':')[1].Replace(",", "");
                 var parsedAmount = lines[lines.Length - 2].Split(':')[1];
 
-                charts.CreatePieChart(solidGauge_docAmount, int.Parse(fullAmount), int.Parse(parsedAmount));
+                charts.CreateSolidGauge(solidGauge_docAmount, int.Parse(fullAmount), int.Parse(parsedAmount));
             }
         }
 
@@ -83,7 +85,7 @@ namespace Parser.UI.Analytics.DashboardOptions
                         valueEspacenet.Add(val);
                     }
 
-                    charts.CreateColumnChart(cartesianChart_dates, lblEspacenet.ConvertAll(i => i.ToString()), valueEspacenet);
+                    charts.CreateColumnChartForDates(cartesianChart_dates, lblEspacenet.ConvertAll(i => i.ToString()), valueEspacenet);
                     break;
 
                 case "ФИПС":
@@ -106,7 +108,7 @@ namespace Parser.UI.Analytics.DashboardOptions
                         valueFips.Add(val);
                     }
 
-                    charts.CreateColumnChart(cartesianChart_dates, lblFips.ConvertAll(i => i.ToString()), valueFips);
+                    charts.CreateColumnChartForDates(cartesianChart_dates, lblFips.ConvertAll(i => i.ToString()), valueFips);
                     break;
 
                 case "Яндекс.Патенты":
@@ -129,7 +131,7 @@ namespace Parser.UI.Analytics.DashboardOptions
                         valueYandexPatents.Add(val);
                     }
 
-                    charts.CreateColumnChart(cartesianChart_dates, lblYandexPatents.ConvertAll(i => i.ToString()), valueYandexPatents);
+                    charts.CreateColumnChartForDates(cartesianChart_dates, lblYandexPatents.ConvertAll(i => i.ToString()), valueYandexPatents);
                     break;
 
                 case "WIPO":
@@ -150,7 +152,7 @@ namespace Parser.UI.Analytics.DashboardOptions
                 .Select(id => id.ClusterId)
                 .ToList();
 
-            var scores = clusterizer.ClusterResults
+            scores = clusterizer.ClusterResults
                 .Select(score => score.Score)
                 .ToList();
 

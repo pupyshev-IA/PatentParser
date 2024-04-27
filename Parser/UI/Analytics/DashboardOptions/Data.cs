@@ -12,8 +12,11 @@ namespace Parser.UI.Analytics.DashboardOptions
         DataFilter filter;
         DataSet dataSet;
 
-        private string selectedLink;
+        private int selectedIndex;
+        private string selectedLink, selectedDocNum;
+        public int SelectedIndex { get => selectedIndex; }
         public string SelectedLink { get => selectedLink; }
+        public string SelectedDocNum { get => selectedDocNum; }
 
         public Data(Dashboard dashboard, DataSet ds)
         {
@@ -22,6 +25,9 @@ namespace Parser.UI.Analytics.DashboardOptions
             this.dashboard = dashboard;
             dataSet = ds;
             dataGridView.DataSource = dataSet.Tables[0];
+            selectedLink = dataGridView.Rows[0].Cells["Ссылка"].Value.ToString();
+            if (selectedLink.Contains("fips"))
+                selectedDocNum = dataGridView.Rows[0].Cells["Номер документа"].Value.ToString();
         }
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -39,7 +45,10 @@ namespace Parser.UI.Analytics.DashboardOptions
 
         private void dataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            selectedIndex = e.RowIndex;
             selectedLink = dataGridView.Rows[e.RowIndex].Cells["Ссылка"].Value.ToString();
+            if (selectedLink.Contains("fips"))
+                selectedDocNum = dataGridView.Rows[e.RowIndex].Cells["Номер документа"].Value.ToString();
         }
 
         private void btnFilter_Click(object sender, EventArgs e)

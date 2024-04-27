@@ -19,7 +19,7 @@ namespace Parser.UI.Parsers
         Dictionary<string, string> formData;
         Dictionary<string, List<string>> forExcel;
         private SelectingFileName fileNameSelect;
-        private SeleniumParsers parser;
+        private PatentDatabaseParser parser;
         private ExcelFiles excel;
         private TextFiles txt;
         private FileExplorer fileExplorer;
@@ -49,7 +49,7 @@ namespace Parser.UI.Parsers
                 {
                     fileName = fileNameSelect.GetFileName();
 
-                    parser = new SeleniumParsers();
+                    parser = new PatentDatabaseParser();
                     forExcel = parser.ParseYandexPatents(formData);
 
                     bool isSuccess = excel.CreateExcelFile(forExcel, excelFilePath, fileName);

@@ -14,6 +14,7 @@ namespace Parser.UI.Analytics
         private RequestInfo requestInfo;
         private Data data;
         private PatentInfo patentInfo;
+        private ChatBot chatBot;
 
         public Dashboard(DataSet ds, string filePath)
         {
@@ -32,6 +33,7 @@ namespace Parser.UI.Analytics
             requestInfo.Hide();
             data.Hide();
             patentInfo.Hide();
+            chatBot.Hide();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -52,6 +54,9 @@ namespace Parser.UI.Analytics
 
             patentInfo = new PatentInfo(requestInfo) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             pnlFormLoader.Controls.Add(patentInfo);
+
+            chatBot = new ChatBot() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            pnlFormLoader.Controls.Add(chatBot);
         }
 
         private void btnRequestInfo_Click(object sender, EventArgs e)
@@ -87,6 +92,16 @@ namespace Parser.UI.Analytics
 
             pnlBar.Top = btnPatentInfo.Top + 6;
             btnPatentInfo.BackColor = Color.FromArgb(70, 70, 70);
+        }
+
+        private void btnChatBot_Click(object sender, EventArgs e)
+        {
+            OptionChanged();
+            lblName.Text = btnChatBot.Text;
+            chatBot.Show();
+
+            pnlBar.Top = btnChatBot.Top + 6;
+            btnChatBot.BackColor = Color.FromArgb(70, 70, 70);
         }
 
         public void ClickPatentInfoButton()

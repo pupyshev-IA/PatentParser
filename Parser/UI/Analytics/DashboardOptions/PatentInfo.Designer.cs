@@ -87,7 +87,6 @@
             // tbAbstract_text
             // 
             this.tbAbstract_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbAbstract_text.Enabled = false;
             this.tbAbstract_text.Location = new System.Drawing.Point(0, 45);
             this.tbAbstract_text.Multiline = true;
             this.tbAbstract_text.Name = "tbAbstract_text";

@@ -98,9 +98,6 @@ namespace Parser.Models.Parsers
                 var number = driver.FindElement(By.XPath("/html/body/div[1]/div/div[6]/div[3]/div[1]/h2")).Text;
                 response["Номер документа"] = number;
 
-                var inventor = driver.FindElement(By.XPath("/html/body/div[1]/div/div[6]/div[2]/div[2]/div[2]/div[1]/div/div[3]")).Text;
-                response["Автор"] = Regex.Replace(inventor, pattern, " ");
-
                 var ipc = driver.FindElement(By.XPath("/html/body/div[1]/div/div[6]/div[2]/div[1]/div[2]/div[2]")).Text;
                 int index = ipc.IndexOf("МПК");
                 ipc = ipc.Substring(index + "МПК".Length).Replace("МПК", "");
@@ -109,8 +106,14 @@ namespace Parser.Models.Parsers
                 var text = driver.FindElement(By.XPath("/html/body/div[1]/div/div[6]/div[2]/div[4]/div[2]")).Text;
                 response["Реферат"] = text;
 
-                var applicant = driver.FindElement(By.XPath("/html/body/div[1]/div/div[6]/div[2]/div[2]/div[2]/div[2]/div/div[3]")).Text;
-                response["Заявитель"] = applicant;
+                var info = driver.FindElement(By.XPath("/html/body/div[1]/div/div[6]/div[2]/div[2]/div[2]")).Text;
+                info = Regex.Replace(info, pattern, " ");
+
+                var inventor = Regex.Match(info, @"Авторы: ([^\(]+)").Value;
+                response["Автор"] = inventor.Replace("Авторы: ", "");
+
+                var applicant = Regex.Match(info, @"Патентообладатели: ([^\(]+)").Value;
+                response["Заявитель"] = applicant.Replace("Патентообладатели: ", "");
 
                 //IWebElement imageElement = driver.FindElement(By.XPath("/html/body/div[1]/div/div[6]/div[2]/div[3]/div[2]/div/div/img"));
                 //string imageUrl = imageElement.GetAttribute("src");

@@ -183,7 +183,7 @@ namespace Parser.Models.Parsers
 
                 driver.FindElement(By.Name("j_idt92")).Click();
 
-                var buttonNextId = driver.FindElement(By.XPath("/html/body/div[3]/div/div/div[1]/div[2]/div/form/div[5]/a[6]")).GetAttribute("id");
+                var buttonNextId = driver.FindElement(By.XPath("/html/body/div[3]/div/div/div[1]/div[2]/div/form/div[5]/span[4]")).GetAttribute("id");
 
                 Thread.Sleep(1000);
                 string newKey = "ResultAmount";

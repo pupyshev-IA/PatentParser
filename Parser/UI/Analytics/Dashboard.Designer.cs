@@ -33,7 +33,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.pnlBar = new System.Windows.Forms.Panel();
             this.panelNavigation = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnChatBot = new System.Windows.Forms.Button();
             this.btnPatentInfo = new System.Windows.Forms.Button();
             this.btnTable = new System.Windows.Forms.Button();
             this.btnRequestInfo = new System.Windows.Forms.Button();
@@ -99,7 +99,7 @@
             // 
             this.panelNavigation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.panelNavigation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelNavigation.Controls.Add(this.button3);
+            this.panelNavigation.Controls.Add(this.btnChatBot);
             this.panelNavigation.Controls.Add(this.btnPatentInfo);
             this.panelNavigation.Controls.Add(this.btnTable);
             this.panelNavigation.Controls.Add(this.btnRequestInfo);
@@ -112,22 +112,24 @@
             this.panelNavigation.Size = new System.Drawing.Size(350, 751);
             this.panelNavigation.TabIndex = 9;
             // 
-            // button3
+            // btnChatBot
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(5, 525);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
-            this.button3.Size = new System.Drawing.Size(338, 70);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "btn4";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnChatBot.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnChatBot.FlatAppearance.BorderSize = 0;
+            this.btnChatBot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChatBot.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChatBot.ForeColor = System.Drawing.Color.White;
+            this.btnChatBot.Image = global::Parser.Properties.Resources.chat;
+            this.btnChatBot.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnChatBot.Location = new System.Drawing.Point(5, 525);
+            this.btnChatBot.Name = "btnChatBot";
+            this.btnChatBot.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
+            this.btnChatBot.Size = new System.Drawing.Size(338, 70);
+            this.btnChatBot.TabIndex = 4;
+            this.btnChatBot.Text = "ChatBot";
+            this.btnChatBot.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnChatBot.UseVisualStyleBackColor = true;
+            this.btnChatBot.Click += new System.EventHandler(this.btnChatBot_Click);
             // 
             // btnPatentInfo
             // 
@@ -142,7 +144,7 @@
             this.btnPatentInfo.Name = "btnPatentInfo";
             this.btnPatentInfo.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
             this.btnPatentInfo.Size = new System.Drawing.Size(338, 70);
-            this.btnPatentInfo.TabIndex = 11;
+            this.btnPatentInfo.TabIndex = 3;
             this.btnPatentInfo.Text = "Сведения по патенту";
             this.btnPatentInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnPatentInfo.UseVisualStyleBackColor = true;
@@ -161,7 +163,7 @@
             this.btnTable.Name = "btnTable";
             this.btnTable.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
             this.btnTable.Size = new System.Drawing.Size(338, 70);
-            this.btnTable.TabIndex = 10;
+            this.btnTable.TabIndex = 2;
             this.btnTable.Text = "Данные";
             this.btnTable.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnTable.UseVisualStyleBackColor = true;
@@ -180,7 +182,7 @@
             this.btnRequestInfo.Name = "btnRequestInfo";
             this.btnRequestInfo.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
             this.btnRequestInfo.Size = new System.Drawing.Size(338, 70);
-            this.btnRequestInfo.TabIndex = 7;
+            this.btnRequestInfo.TabIndex = 1;
             this.btnRequestInfo.Text = "Информация по запросу";
             this.btnRequestInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnRequestInfo.UseVisualStyleBackColor = true;
@@ -239,7 +241,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSpace;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Panel pnlFormLoader;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnChatBot;
         private System.Windows.Forms.Button btnPatentInfo;
         private System.Windows.Forms.Button btnTable;
     }

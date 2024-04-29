@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnYandexGPTSend.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAVlJREFUSEvtlj0vBFEUhgeFSEgUaoVEIb4KP4HEdio/gZJSS6KgVCr4AaIXX/9A
+        oqKgV5CIjwiRcD3v5N1E7GbWcmemmSd5kr3nnnvOzOTunUkqKgohhLCEGzjkUDHQsIbiAw9wDrs8nR80
+        6XfT79ygnsKg0/KBBhfqBot4gp/pKIR33Mdp7HB6PCi6g6Lm8TDqju8UNNe4ggPpohhQbEGVYc2hFMbd
+        OI/HmjRvuIczTvs7FBlXRThyqAHmRnALn5VoLnEZe53WHizsxEebuaOZ70PthXOs84TbOOm038MibSox
+        5lBLyJ1CNXzRQnOGurAep2VD4rpWgR7lfZu+4k9ucROzDyYSSmt8qmwYdagl5P7vUZNU31wP+u1wU5iP
+        t7lYMKHVcOhQA8zl8nfSHYhVh1IY536A7KoizHrc7Mi8wuhHZvEvCQqW81qkeGkfAuV8+lRUxCNJvgCO
+        TQhzcoTTZwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btnGigaChatSend.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

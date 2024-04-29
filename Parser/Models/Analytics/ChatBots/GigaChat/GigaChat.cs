@@ -15,12 +15,11 @@ namespace Parser.Models.Analytics.ChatBots.GigaChat
         const string RqUID = "3524209a-bbf0-4de9-b3a4-870b9f4879a4";
 
         private string accessToken;
-        private List<Message> conversation;
-        private string curAnswer;
+        private List<GigaChatMessage> conversation;
 
         public GigaChat()
         {
-            conversation = new List<Message>();
+            conversation = new List<GigaChatMessage>();
 
             GetToken();
         }
@@ -51,7 +50,7 @@ namespace Parser.Models.Analytics.ChatBots.GigaChat
         {
             string url = @"https://gigachat.devices.sberbank.ru/api/v1/chat/completions";
 
-            conversation.Add(new Message(role: "user", content: question));
+            conversation.Add(new GigaChatMessage(role: "user", content: question));
 
             var data = new Dictionary<string, object>()
             {
@@ -81,10 +80,9 @@ namespace Parser.Models.Analytics.ChatBots.GigaChat
                 var contentJson = JObject.Parse(contentString);
                 var answer = contentJson["choices"][0]["message"]["content"].ToString();
 
-                conversation.Add(new Message(role: "assistant", content: answer));
+                conversation.Add(new GigaChatMessage(role: "assistant", content: answer));
 
-                curAnswer = answer;
-                return curAnswer;
+                return answer;
             }
         }
     }

@@ -315,7 +315,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Analytics\ChatBots\GigaChat\GigaChat.cs" />
-    <Compile Include="Models\Analytics\ChatBots\GigaChat\Message.cs" />
+    <Compile Include="Models\Analytics\ChatBots\GigaChat\GigaChatMessage.cs" />
+    <Compile Include="Models\Analytics\ChatBots\YandexGPT\YandexGPT.cs" />
+    <Compile Include="Models\Analytics\ChatBots\YandexGPT\YandexGPTMessage.cs" />
     <Compile Include="Models\Analytics\Clustering\DataClusterizer.cs" />
     <Compile Include="Models\Analytics\Clustering\MLdata.cs" />
     <Compile Include="Models\Analytics\LiveChart.cs" />

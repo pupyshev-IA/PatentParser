@@ -51,24 +51,38 @@ namespace Parser.UI.Analytics.DashboardOptions
 
         private async void btnGigaChatSend_Click(object sender, EventArgs e)
         {
-            AddGigaChatMessage(tbGigaChatRequest.Text);
+            if (InternetConnection.IsInternetConnected())
+            {
+                AddGigaChatMessage(tbGigaChatRequest.Text);
 
-            var answer = await gigaChat.AskQuestion(tbGigaChatRequest.Text);
-            tbGigaChatRequest.Text = "";
-            tbGigaChatRequest.Focus();
+                var answer = await gigaChat.AskQuestion(tbGigaChatRequest.Text);
+                tbGigaChatRequest.Text = "";
+                tbGigaChatRequest.Focus();
 
-            AddGigaChatMessage(answer, isAnswer: true);
+                AddGigaChatMessage(answer, isAnswer: true);
+            }
+            else
+            {
+                MessageBox.Show("Проверьте подключение к Интернету", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private async void btnYandexGPTSend_Click(object sender, EventArgs e)
         {
-            AddYandexGPTMessage(tbYandexGPTRequest.Text);
+            if (InternetConnection.IsInternetConnected())
+            {
+                AddYandexGPTMessage(tbYandexGPTRequest.Text);
 
-            var answer = await yandexGPT.AskQuestion(tbYandexGPTRequest.Text);
-            tbYandexGPTRequest.Text = "";
-            tbYandexGPTRequest.Focus();
+                var answer = await yandexGPT.AskQuestion(tbYandexGPTRequest.Text);
+                tbYandexGPTRequest.Text = "";
+                tbYandexGPTRequest.Focus();
 
-            AddYandexGPTMessage(answer, isAnswer: true);
+                AddYandexGPTMessage(answer, isAnswer: true);
+            }
+            else
+            {
+                MessageBox.Show("Проверьте подключение к Интернету", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void AddGigaChatMessage(string text, bool isAnswer = false)

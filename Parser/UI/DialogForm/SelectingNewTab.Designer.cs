@@ -51,7 +51,8 @@
             "ФИПС",
             "Яндекс.Патенты",
             "WIPO",
-            "Espacenet"});
+            "Espacenet",
+            "Роспатент"});
             this.clbParsers.Location = new System.Drawing.Point(11, 88);
             this.clbParsers.Name = "clbParsers";
             this.clbParsers.Size = new System.Drawing.Size(180, 233);

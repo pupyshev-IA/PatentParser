@@ -135,6 +135,49 @@ namespace Parser.UI.Analytics.DashboardOptions
                     break;
 
                 case "WIPO":
+                    List<int> lblWipo = new List<int>();
+                    lblWipo = dataSet.Tables[0].AsEnumerable()
+                        .Select(row => row.Field<string>("Дата публикации"))
+                        .Select(date => DateTime.Parse(date).Year)
+                        .Distinct()
+                        .OrderBy(year => year)
+                        .ToList();
+
+                    List<int> valueWipo = new List<int>();
+                    foreach (var el in lblWipo)
+                    {
+                        var val = dataSet.Tables[0].AsEnumerable()
+                            .Select(row => row.Field<string>("Дата публикации"))
+                            .Select(date => DateTime.Parse(date).Year)
+                            .Count(x => x == el);
+
+                        valueWipo.Add(val);
+                    }
+
+                    charts.CreateColumnChartForDates(cartesianChart_dates, lblWipo.ConvertAll(i => i.ToString()), valueWipo);
+                    break;
+
+                case "Роспатент":
+                    List<int> lblRospatent = new List<int>();
+                    lblRospatent = dataSet.Tables[0].AsEnumerable()
+                        .Select(row => row.Field<string>("Дата публикации"))
+                        .Select(date => DateTime.Parse(date).Year)
+                        .Distinct()
+                        .OrderBy(year => year)
+                        .ToList();
+
+                    List<int> valueRospatent = new List<int>();
+                    foreach (var el in lblRospatent)
+                    {
+                        var val = dataSet.Tables[0].AsEnumerable()
+                            .Select(row => row.Field<string>("Дата публикации"))
+                            .Select(date => DateTime.Parse(date).Year)
+                            .Count(x => x == el);
+
+                        valueRospatent.Add(val);
+                    }
+
+                    charts.CreateColumnChartForDates(cartesianChart_dates, lblRospatent.ConvertAll(i => i.ToString()), valueRospatent);
                     break;
             }
         }

@@ -18,6 +18,7 @@ namespace Parser.UI.Parsers
 
         Dictionary<string, string> formData;
         Dictionary<string, List<string>> forExcel;
+
         private SelectingFileName fileNameSelect;
         private PatentDatabaseParser parser;
         private ExcelFiles excel;
@@ -74,7 +75,7 @@ namespace Parser.UI.Parsers
             }
             else
             {
-                MessageBox.Show("Проверьте подключение к Интеренету", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Проверьте подключение к Интернету", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

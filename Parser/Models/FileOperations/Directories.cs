@@ -26,6 +26,7 @@ namespace Parser.Models.FileOperations
                 @"../search_info/Espacenet",
                 @"../search_info/ФИПС",
                 @"../search_info/Яндекс.Патенты",
+                @"../search_info/Роспатент",
                 @"../search_info/Глобальный поиск",
                 @"../search_info/Простой поиск",
 
@@ -34,6 +35,7 @@ namespace Parser.Models.FileOperations
                 @"../Результаты поиска/Espacenet",
                 @"../Результаты поиска/ФИПС",
                 @"../Результаты поиска/Яндекс.Патенты",
+                @"../Результаты поиска/Роспатент",
                 @"../Результаты поиска/Глобальный поиск",
                 @"../Результаты поиска/Простой поиск"
             };

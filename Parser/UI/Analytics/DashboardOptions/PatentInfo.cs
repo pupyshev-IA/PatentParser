@@ -70,6 +70,14 @@ namespace Parser.UI.Analytics.DashboardOptions
                     }
                 case var _ when link.Contains("wipo"):
                     {
+                        resultInfo = scraper.FetchWipoPatent(link, docNum);
+                        SetData(resultInfo);
+                        break;
+                    }
+                case var _ when link.Contains("rospatent"):
+                    {
+                        resultInfo = scraper.FetchRospatentPatent(link, docNum);
+                        SetData(resultInfo);
                         break;
                     }
             }

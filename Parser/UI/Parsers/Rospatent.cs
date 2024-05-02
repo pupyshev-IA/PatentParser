@@ -10,10 +10,10 @@ using Parser.UI.main;
 
 namespace Parser.UI.Parsers
 {
-    public partial class FIPS : Form
+    public partial class Rospatent : Form
     {
-        private string excelFilePath = @"../Результаты поиска/ФИПС/";
-        private string txtFilePath = @"../search_info/ФИПС/";
+        private string excelFilePath = @"../Результаты поиска/Роспатент/";
+        private string txtFilePath = @"../search_info/Роспатент/";
         private string fileName = "";
 
         Dictionary<string, string> formData;
@@ -26,7 +26,7 @@ namespace Parser.UI.Parsers
         private FileExplorer fileExplorer;
 
 
-        public FIPS()
+        public Rospatent()
         {
             InitializeComponent();
             excel = new ExcelFiles();
@@ -46,32 +46,19 @@ namespace Parser.UI.Parsers
                     formData = new Dictionary<string, string>
                     {
                         { "Keys", tbKeys.Text },
-                        { "Name", tbName.Text },
                         { "DocNum", tbDocNum.Text },
-                        { "Date", tbDate.Text },
-                        { "MPK", tbMPK.Text },
-                        { "Applicant", tbApplicant.Text },
+                        { "DateStart", mtbStart.Text.Replace(",", ".") },
+                        { "DateEnd", mtbEnd.Text.Replace(",", ".") },
                         { "Author", tbAuthor.Text },
                         { "Patentee", tbPatentee.Text },
-                        { "PublicationDate", tbPublicationDate.Text },
-                        { "DateRTS", tbDateRTS.Text },
-                        { "NumRTS", tbNumRTS.Text },
-                        { "Correspondence", tbCorrespondence.Text },
-                        { "ViewCode", tbViewCode.Text },
-                        { "RegNum", tbRegNum.Text },
-                        { "ApplicationDate", tbApplicationDate.Text },
-                        { "ConventionPriority", tbConventionPriority.Text },
-                        { "ConventionDate", tbConventionDate.Text },
-                        { "PriorityCountry", tbPriorityCountry.Text },
-                        { "Essay", tbEssay.Text },
-                        { "Formula", tbFormula.Text },
+                        { "Applicant", tbApplicant.Text },
                         { "DocAmount", tbDocAmount.Text }
                     };
 
                     fileName = fileNameSelect.GetFileName();
 
                     parser = new PatentDatabaseParser();
-                    forExcel = parser.ParseFips(formData);
+                    forExcel = parser.ParseRospatent(formData);
 
                     bool isSuccess = excel.CreateExcelFile(forExcel, excelFilePath, fileName);
 
@@ -111,6 +98,9 @@ namespace Parser.UI.Parsers
                 if (el is KryptonTextBox)
                     el.Text = "";
             }
+
+            mtbStart.Text = "";
+            mtbEnd.Text = "";
 
             tbDocAmount.Text = "";
         }

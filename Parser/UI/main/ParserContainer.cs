@@ -78,7 +78,7 @@ namespace Parser.UI.main
             if (tabControl_Parsers.GetTabRect(lastIndex).Contains(e.Location))
             {
                 SelectingNewTab newTab = new SelectingNewTab();
-                newTab.Show();
+                newTab.ShowDialog();
             }
             else
             {
@@ -122,20 +122,6 @@ namespace Parser.UI.main
             {
                 switch (el)
                 {
-                    case "Глобальный поиск":
-                        GlobalSearch globalSearch = new GlobalSearch() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                        makeTab(lastIndex, el);
-                        tabControl_Parsers.TabPages[lastIndex].Controls.Add(globalSearch);
-                        globalSearch.Show();
-                        break;
-
-                    case "Простой поиск":
-                        SimpleSearch simpleSearch = new SimpleSearch() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                        makeTab(lastIndex, el);
-                        tabControl_Parsers.TabPages[lastIndex].Controls.Add(simpleSearch);
-                        simpleSearch.Show();
-                        break;
-
                     case "ФИПС":
                         FIPS fips = new FIPS() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                         makeTab(lastIndex, el);
@@ -163,6 +149,13 @@ namespace Parser.UI.main
                         tabControl_Parsers.TabPages[lastIndex].Controls.Add(wipo);
                         wipo.Show();
                         break;
+
+                    case "Роспатент":
+                        Rospatent rospatent = new Rospatent() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                        makeTab(lastIndex, el);
+                        tabControl_Parsers.TabPages[lastIndex].Controls.Add(rospatent);
+                        rospatent.Show();
+                        break;
                 }
             }
         }
@@ -170,7 +163,7 @@ namespace Parser.UI.main
         private void btnNewParser_Click(object sender, EventArgs e)
         {
             SelectingNewTab newTab = new SelectingNewTab();
-            newTab.Show();
+            newTab.ShowDialog();
         }
     }
 }
